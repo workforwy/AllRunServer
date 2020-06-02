@@ -1,6 +1,7 @@
 package entity;
 
 public class Flight {
+
     private int id;
     private String number;
     private String from;
@@ -8,8 +9,7 @@ public class Flight {
     private String data;
     private double price;
 
-    public Flight(int id, String number, String from, String to, String data,
-                  double price) {
+    public Flight(int id, String number, String from, String to, String data, double price) {
         super();
         this.id = id;
         this.number = number;

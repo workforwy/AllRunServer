@@ -1,3 +1,8 @@
+package servlets;
+
+import entity.QueryEntity;
+import entity.WordEntity;
+
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;

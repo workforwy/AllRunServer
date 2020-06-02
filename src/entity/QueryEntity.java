@@ -1,15 +1,17 @@
+package entity;
+
 import java.io.Serializable;
 
 public class QueryEntity implements Serializable {
-private String word;
+    private String word;
 
-public String getWord() {
-	int a=0;
-	return word;
-}
+    public String getWord() {
+        int a = 0;
+        return word;
+    }
 
-public void setWord(String word) {
-	this.word = word;
-}
+    public void setWord(String word) {
+        this.word = word;
+    }
 
 }

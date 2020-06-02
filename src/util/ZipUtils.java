@@ -10,294 +10,262 @@ import java.util.Vector;
 
 
 /**
- * 
  * 功能： 1 、实现把指定文件夹下的所有文件压缩为指定文件夹下指定 zip 文件 2 、实现把指定文件夹下的 zip 文件解压到指定目录下
- * 
- * 
- * 
+ *
  * @author ffshi
- * 
- * 
  */
 
 public class ZipUtils {
 
-	public static void main(String[] args) {
+    public static void main(String[] args) {
 
-		// 把 E 盘正则表达式文件夹下的所有文件压缩到 E 盘 stu 目录下，压缩后的文件名保存为 正则表达式 .zip
+        // 把 E 盘正则表达式文件夹下的所有文件压缩到 E 盘 stu 目录下，压缩后的文件名保存为 正则表达式 .zip
 
-		// zip ("E:// 正则表达式 ", "E://stu // 正则表达式 .zip ");
+        // zip ("E:// 正则表达式 ", "E://stu // 正则表达式 .zip ");
 
-		// 把 E 盘 stu 目录下的正则表达式 .zip 压缩文件内的所有文件解压到 E 盘 stu 目录下面
+        // 把 E 盘 stu 目录下的正则表达式 .zip 压缩文件内的所有文件解压到 E 盘 stu 目录下面
 
-		Vector fileNames = (new ZipUtils()).unZip("c://1.zip", "c://stu");
-		for (int i = 0; i < fileNames.size(); i++) {
-			System.out.println(fileNames.get(i));
-		}
+        Vector fileNames = (new ZipUtils()).unZip("c://1.zip", "c://stu");
+        for (int i = 0; i < fileNames.size(); i++) {
+            System.out.println(fileNames.get(i));
+        }
 
-	}
+    }
 
-	/**
-	 * 
-	 * 功能：把 sourceDir 目录下的所有文件进行 zip 格式的压缩，保存为指定 zip 文件 create date:2009- 6- 9
-	 * 
-	 * author:Administrator
-	 * 
-	 * 
-	 * 
-	 * @param sourceDir
-	 * 
-	 *            E:// 我的备份
-	 * 
-	 * @param zipFile
-	 * 
-	 *            格式： E://stu //zipFile.zip 注意：加入 zipFile 我们传入的字符串值是
-	 * 
-	 *            ： "E://stu //" 或者 "E://stu "
-	 * 
-	 *            如果 E 盘已经存在 stu 这个文件夹的话，那么就会出现 java.io.FileNotFoundException:
-	 *            E:/stu
-	 * 
-	 *            ( 拒绝访问。 ) 这个异常，所以要注意正确传参调用本函数哦
-	 * 
-	 * 
-	 */
+    /**
+     * 功能：把 sourceDir 目录下的所有文件进行 zip 格式的压缩，保存为指定 zip 文件 create date:2009- 6- 9
+     * <p>
+     * author:Administrator
+     *
+     * @param sourceDir E:// 我的备份
+     * @param zipFile   格式： E://stu //zipFile.zip 注意：加入 zipFile 我们传入的字符串值是
+     *                  <p>
+     *                  ： "E://stu //" 或者 "E://stu "
+     *                  <p>
+     *                  如果 E 盘已经存在 stu 这个文件夹的话，那么就会出现 java.io.FileNotFoundException:
+     *                  E:/stu
+     *                  <p>
+     *                  ( 拒绝访问。 ) 这个异常，所以要注意正确传参调用本函数哦
+     */
 
-	public static void zip(String sourceDir, String zipFile) {
+    public static void zip(String sourceDir, String zipFile) {
 
-		OutputStream os;
+        OutputStream os;
 
-		try {
+        try {
 
-			os = new FileOutputStream(zipFile);
+            os = new FileOutputStream(zipFile);
 
-			BufferedOutputStream bos = new BufferedOutputStream(os);
+            BufferedOutputStream bos = new BufferedOutputStream(os);
 
-			ZipOutputStream zos = new ZipOutputStream(bos);
+            ZipOutputStream zos = new ZipOutputStream(bos);
 
-			File file = new File(sourceDir);
+            File file = new File(sourceDir);
 
-			String basePath = null;
+            String basePath = null;
 
-			if (file.isDirectory()) {
+            if (file.isDirectory()) {
 
-				basePath = file.getPath();
+                basePath = file.getPath();
 
-			} else {
+            } else {
 
-				basePath = file.getParent();
+                basePath = file.getParent();
 
-			}
+            }
 
-			zipFile(file, basePath, zos);
+            zipFile(file, basePath, zos);
 
-			zos.closeEntry();
+            zos.closeEntry();
 
-			zos.close();
+            zos.close();
 
-		} catch (Exception e) {
+        } catch (Exception e) {
 
-			// TODO Auto-generated catch block
+            // TODO Auto-generated catch block
 
-			e.printStackTrace();
+            e.printStackTrace();
 
-		}
+        }
 
-	}
+    }
 
-	/**
-	 * 
-	 * 
-	 * 
-	 * create date:2009- 6- 9 author:Administrator
-	 * 
-	 * 
-	 * 
-	 * @param source
-	 * 
-	 * @param basePath
-	 * 
-	 * @param zos
-	 * 
-	 * @throws IOException
-	 */
+    /**
+     * create date:2009- 6- 9 author:Administrator
+     *
+     * @param source
+     * @param basePath
+     * @param zos
+     * @throws IOException
+     */
 
-	private static void zipFile(File source, String basePath,
+    private static void zipFile(File source, String basePath,
 
-	ZipOutputStream zos) {
+                                ZipOutputStream zos) {
 
-		File[] files = new File[0];
+        File[] files = new File[0];
 
-		if (source.isDirectory()) {
+        if (source.isDirectory()) {
 
-			files = source.listFiles();
+            files = source.listFiles();
 
-		} else {
+        } else {
 
-			files = new File[1];
+            files = new File[1];
 
-			files[0] = source;
+            files[0] = source;
 
-		}
+        }
 
-		String pathName;
+        String pathName;
 
-		byte[] buf = new byte[1024];
+        byte[] buf = new byte[1024];
 
-		int length = 0;
+        int length = 0;
 
-		try {
+        try {
 
-			for (File file : files) {
+            for (File file : files) {
 
-				if (file.isDirectory()) {
+                if (file.isDirectory()) {
 
-					pathName = file.getPath().substring(basePath.length() + 1)
+                    pathName = file.getPath().substring(basePath.length() + 1)
 
-					+ "/";
+                            + "/";
 
-					zos.putNextEntry(new ZipEntry(pathName));
+                    zos.putNextEntry(new ZipEntry(pathName));
 
-					zipFile(file, basePath, zos);
+                    zipFile(file, basePath, zos);
 
-				} else {
+                } else {
 
-					pathName = file.getPath().substring(basePath.length() + 1);
+                    pathName = file.getPath().substring(basePath.length() + 1);
 
-					InputStream is = new FileInputStream(file);
+                    InputStream is = new FileInputStream(file);
 
-					BufferedInputStream bis = new BufferedInputStream(is);
+                    BufferedInputStream bis = new BufferedInputStream(is);
 
-					zos.putNextEntry(new ZipEntry(pathName));
+                    zos.putNextEntry(new ZipEntry(pathName));
 
-					while ((length = bis.read(buf)) > 0) {
+                    while ((length = bis.read(buf)) > 0) {
 
-						zos.write(buf, 0, length);
+                        zos.write(buf, 0, length);
 
-					}
+                    }
 
-					is.close();
+                    is.close();
 
-				}
+                }
 
-			}
+            }
 
-		} catch (Exception e) {
+        } catch (Exception e) {
 
-			// TODO Auto-generated catch block
+            // TODO Auto-generated catch block
 
-			e.printStackTrace();
+            e.printStackTrace();
 
-		}
+        }
 
-	}
+    }
 
-	/**
-	 * 
-	 * 解压 zip 文件，注意不能解压 rar 文件哦，只能解压 zip 文件 解压 rar 文件 会出现 java.io.IOException:
-	 * Negative
-	 * 
-	 * seek offset 异常 create date:2009- 6- 9 author:Administrator
-	 * 
-	 * 
-	 * 
-	 * @param zipfile
-	 * 
-	 *            zip 文件，注意要是正宗的 zip 文件哦，不能是把 rar 的直接改为 zip 这样会出现
-	 *            java.io.IOException:
-	 * 
-	 *            Negative seek offset 异常
-	 * 
-	 * @param destDir
-	 * 
-	 * @throws IOException
-	 */
+    /**
+     * 解压 zip 文件，注意不能解压 rar 文件哦，只能解压 zip 文件 解压 rar 文件 会出现 java.io.IOException:
+     * Negative
+     * <p>
+     * seek offset 异常 create date:2009- 6- 9 author:Administrator
+     *
+     * @param zipfile zip 文件，注意要是正宗的 zip 文件哦，不能是把 rar 的直接改为 zip 这样会出现
+     *                java.io.IOException:
+     *                <p>
+     *                Negative seek offset 异常
+     * @param destDir
+     * @throws IOException
+     */
 
-	public  Vector unZip(String zipfile, String destDir) {
+    public Vector unZip(String zipfile, String destDir) {
 
-		Vector fileNames = new Vector();
-		destDir = destDir.endsWith("//") ? destDir : destDir + "//";
+        Vector fileNames = new Vector();
+        destDir = destDir.endsWith("//") ? destDir : destDir + "//";
 
-		byte b[] = new byte[1024];
+        byte b[] = new byte[1024];
 
-		int length;
+        int length;
 
-		ZipFile zipFile;
-		String fileName;
-		try {
-			File file = new File(zipfile);
-			zipFile = new ZipFile(file);
+        ZipFile zipFile;
+        String fileName;
+        try {
+            File file = new File(zipfile);
+            zipFile = new ZipFile(file);
 
-			Enumeration enumeration = zipFile.getEntries();
+            Enumeration enumeration = zipFile.getEntries();
 
-			ZipEntry zipEntry = null;
+            ZipEntry zipEntry = null;
 
-			while (enumeration.hasMoreElements()) {
+            while (enumeration.hasMoreElements()) {
 
-				zipEntry = (ZipEntry) enumeration.nextElement();
+                zipEntry = (ZipEntry) enumeration.nextElement();
 
-				File loadFile = new File(destDir + zipEntry.getName());
+                File loadFile = new File(destDir + zipEntry.getName());
 
-				fileName = loadFile.getName();
-	
+                fileName = loadFile.getName();
 
-				if (zipEntry.isDirectory()) {
 
-					// 这段都可以不要，因为每次都貌似从最底层开始遍历的
+                if (zipEntry.isDirectory()) {
 
-					loadFile.mkdirs();
+                    // 这段都可以不要，因为每次都貌似从最底层开始遍历的
 
-				} else {
+                    loadFile.mkdirs();
 
-					if (!loadFile.getParentFile().exists())
+                } else {
 
-						loadFile.getParentFile().mkdirs();
+                    if (!loadFile.getParentFile().exists())
 
-					OutputStream outputStream = new FileOutputStream(loadFile);
+                        loadFile.getParentFile().mkdirs();
 
-					InputStream inputStream = zipFile.getInputStream(zipEntry);
+                    OutputStream outputStream = new FileOutputStream(loadFile);
 
-					while ((length = inputStream.read(b)) > 0) {
+                    InputStream inputStream = zipFile.getInputStream(zipEntry);
 
-						outputStream.write(b, 0, length);
-					}
+                    while ((length = inputStream.read(b)) > 0) {
 
-					outputStream.close();
-					outputStream = null;
-					inputStream.close();
-					inputStream = null;
+                        outputStream.write(b, 0, length);
+                    }
 
-				}
-				loadFile = null;
-			}
+                    outputStream.close();
+                    outputStream = null;
+                    inputStream.close();
+                    inputStream = null;
 
-			System.out.println(" 文件解压成功2 ");
-			
-			// jiujun 08-07
-			
+                }
+                loadFile = null;
+            }
 
-			
-			file = null;
-			zipFile.close();
-			zipFile=null;
-			enumeration=null;
-			zipEntry=null;
-			System.gc();
+            System.out.println(" 文件解压成功2 ");
 
-		} catch (IOException e) {
+            // jiujun 08-07
 
-			// TODO Auto-generated catch block
 
-			e.printStackTrace();
+            file = null;
+            zipFile.close();
+            zipFile = null;
+            enumeration = null;
+            zipEntry = null;
+            System.gc();
 
-		}finally
-		{
-			
-		}
-		
-		
-		return fileNames;
+        } catch (IOException e) {
 
-	}
+            // TODO Auto-generated catch block
+
+            e.printStackTrace();
+
+        } finally {
+
+        }
+
+
+        return fileNames;
+
+    }
 
 }
