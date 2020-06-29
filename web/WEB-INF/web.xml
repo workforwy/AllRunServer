@@ -3,14 +3,14 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
          version="4.0">
-    <filter>
-        <filter-name>Set Character Encoding</filter-name>
-        <filter-class>SetCharacterEncodingFilter</filter-class>
-        <init-param>
-            <param-name>encoding</param-name>
-            <param-value>UTF-8</param-value>
-        </init-param>
-    </filter>
+<!--    <filter>-->
+<!--        <filter-name>SetCharacterEncoding</filter-name>-->
+<!--        <filter-class>SetCharacterEncodingFilter</filter-class>-->
+<!--        <init-param>-->
+<!--            <param-name>encoding</param-name>-->
+<!--            <param-value>UTF-8</param-value>-->
+<!--        </init-param>-->
+<!--    </filter>-->
     <mime-mapping>
         <extension>apk</extension>
         <mime-type>application/vnd.android.package-archive</mime-type>
@@ -21,26 +21,26 @@
 
     <servlet>
         <servlet-name>ObjectServlet</servlet-name>
-        <servlet-class>ObjectServlet</servlet-class>
+        <servlet-class>servlets.ObjectServlet</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>StringServlet</servlet-name>
-        <servlet-class>StringServlet</servlet-class>
+        <servlet-class>servlets.StringServlet</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>JsonServlet</servlet-name>
-        <servlet-class>JsonServlet</servlet-class>
+        <servlet-class>servlets.JsonServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>JsonServlet</servlet-name>
-        <url-pattern>/servlets/JsonServlet</url-pattern>
+        <url-pattern>/JsonServlet</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>ObjectServlet</servlet-name>
-        <url-pattern>/servlets/ObjectServlet</url-pattern>
+        <url-pattern>/ObjectServlet</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>StringServlet</servlet-name>
-        <url-pattern>/servlets/StringServlet</url-pattern>
+        <url-pattern>/StringServlet</url-pattern>
     </servlet-mapping>
 </web-app>
