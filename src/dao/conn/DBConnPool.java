@@ -5,8 +5,9 @@ import util.Log;
 import java.sql.*;
 import java.util.*;
 
-
-/*连接池类.能够根据要求创建新连接,直到最大连接数为止.*/
+/**
+ * 连接池类.能够根据要求创建新连接,直到最大连接数为止.
+ */
 public class DBConnPool {
     Log logger = Log.getInstance();
     //实际使用中的连接数
@@ -53,8 +54,7 @@ public class DBConnPool {
             connections.removeElementAt(0);
             //如果此连接已关闭，则继续获取
             try {
-                if (con.isClosed())
-                    con = getConnection();
+                if (con.isClosed()) con = getConnection();
             } catch (Exception ex) {
                 ex.printStackTrace();
 

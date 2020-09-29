@@ -9,6 +9,7 @@
         //List<Entity>
         //for{ sb.append('')}
         sb.append("<data>");
+        out
         if ("android".equals(word)) {
             sb.append("<mp3Url>android.mp3</mp3Url>");
         } else {

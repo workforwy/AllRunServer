@@ -1,10 +1,3 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: wangyong
-  Date: 2020/5/19
-  Time: 2:46 下午
-  To change this template use File | Settings | File Templates.
---%>
 <?xml version="1.0" encoding="utf-8"?>
 <%@page language="java" contentType="text/xml;charset=utf-8" pageEncoding="utf-8" import="java.util.*" %>
 <%@ page import="entity.Flight" %>

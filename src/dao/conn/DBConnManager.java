@@ -6,9 +6,11 @@ import java.io.*;
 import java.sql.*;
 import java.util.*;
 
-
-/*连接池管理类,可以管理多个数据库连接池*/
+/**
+ * 连接池管理类,可以管理多个数据库连接池
+ */
 public class DBConnManager {
+
     Log logger = Log.getInstance();
     //连接池名列表
     private Vector poolnames = new Vector();
@@ -41,10 +43,8 @@ public class DBConnManager {
             maxconns.addElement(pro.getProperty("maxconns"));
         } catch (Exception e) {
             System.out.print(e);
-            ////logger.sysException.info("",e);
+//            logger.sysException.info(""+e);
         }
-
-
         //创建连接池
         createPools();
     }

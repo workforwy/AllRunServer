@@ -9,8 +9,6 @@
 		}
 	} catch (Exception e) {
 		out.print("login error");
-	} finally {
-		out.print("¹§Ï²µÇÂ¼³É¹¦");
 	}
 %>
 

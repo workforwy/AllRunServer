@@ -1,15 +1,13 @@
 <%@page import="   dao.TraceDAO" %>
 <%@page import="util.Tools" %>
-
 <%@page import="   entity.TraceEntity" %>
 <%@page import="   entity.SportEntity" %>
 <%@page import="   dao.SportDAO" %>
 <%@page import="   dao.UserDAO" %>
 <%@page import="   entity.UserEntity" %>
 <%@page import="   util.Const" %>
-<%@ page contentType="text/html; charset=UTF-8" %>
-<%@page
-        import="java.util.*" %>
+<%@page contentType="text/html; charset=UTF-8" %>
+<%@page import="java.util.*" %>
 <%
     int status = Const.STATUS_OK;
     String msg = Const.STATUS_OK_MSG;

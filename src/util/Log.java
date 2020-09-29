@@ -1,5 +1,7 @@
 package util;
 
+import org.apache.log4j.PropertyConfigurator;
+
 import java.util.logging.Logger;
 
 public class Log {
@@ -15,13 +17,14 @@ public class Log {
         sysException = null;
         //使用相对路径
         String path = (Log.class.getClassLoader().getResource("")).toString();
-        //System.out.println(path);
-        //去掉file:/
+        System.out.println(path);
+
+        //去掉  file:/
         path = path.substring(6);
-        //  System.out.println(path);
+        System.out.println(path);
 
         path = path + "log4j.properties";
-        // PropertyConfigurator.configure(Config.allClassFolder+"/log4j.properties");
+        PropertyConfigurator.configure(path);
         sysException = Logger.getLogger("sysException");
     }
 
@@ -29,18 +32,19 @@ public class Log {
         try {
             init();
         } catch (Exception e) {
+            return null;
         }
         return singleton;
     }
 
-    static void init()
-            throws Exception {
+    static void init() throws Exception {
         singleton = new Log();
     }
 
     public static void main(String[] args) {
-        System.out.print("t5");
         Log logger = Log.getInstance();
-        //logger.sysException.info("wap6");
+        if (logger != null) {
+            logger.sysException.info("wap6");
+        }
     }
 }

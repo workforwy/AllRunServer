@@ -1,0 +1,783 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+
+<head>
+    <title>apiHelp.html</title>
+
+    <meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
+    <meta http-equiv="description" content="this is my page">
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+
+    <!--<link rel="stylesheet" type="text/css" href="./styles.css">-->
+
+</head>
+
+<body>
+<!-- mime -->
+<!-- application/x-www-form-urlencoded -->
+<table width="1024" border="0" cellspacing="0" cellpadding="0">
+    <tr>
+        <td>
+            <h2>注册接口</h2>
+        </td>
+    </tr>
+    <tr>
+        <td>&nbsp;</td>
+    </tr>
+    <tr>
+        <td>
+            <table border="1" cellspacing="0" cellpadding="0" width="100%">
+                <tr>
+                    <td width="571">
+                        <p><strong>Client --&gt; Server</strong><strong> </strong></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="571">
+                        <p>post     /register.jsp<strong> </strong><br>
+                            （以下为参数描述）<br>
+                            username=username&amp;password=password&amp;nickname=nickname&amp;gender=gender&amp;mobile=mobile<br>
+                            &amp;latitude=latitude&amp;longitude=longitude&amp;intro=intro</p>
+                        <p>http协议form方式提交头像文件,文件格式必须是png或gif或jpeg或jpg</p>
+                        <p>status=200  用户名重复<strong> </strong></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="571">
+                        <p><strong>Server --&gt; Client</strong><strong> </strong></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="571">
+                        <p>&nbsp;</p>
+                    </td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+    <tr>
+        <td>&nbsp;</td>
+    </tr>
+    <tr>
+        <td>
+            <h2>测试</h2>
+        </td>
+    </tr>
+    <tr>
+        <td>&nbsp;</td>
+    </tr>
+    <tr>
+        <td>
+            <form target="_blank" action='register.jsp' method="POST" enctype="multipart/form-data">
+
+                <table cellspacing="0" cellpadding="4" frame="box" bordercolor="#dcdcdc" rules="none"
+                       style="border-collapse: collapse;">
+                    <tr>
+                        <td background="#dcdcdc" bgcolor="#CCCCCC" class="frmHeader"
+                            style="border-right: 2px solid white;">参数
+                        </td>
+                        <td background="#dcdcdc" bgcolor="#CCCCCC" class="frmHeader">值</td>
+                    </tr>
+
+
+                    <tr>
+                        <td class="frmText" style="color: #000000; font-weight: normal;">username:</td>
+                        <td><input class="frmInput" type="text" size="50" name="username" value="马云"></td>
+                    </tr>
+                    <tr>
+                        <td class="frmText" style="color: #000000; font-weight: normal;">md5password:</td>
+                        <td><input class="frmInput" type="text" size="50" name="md5password" value="111"></td>
+                    </tr>
+                    <tr>
+                        <td class="frmText" style="color: #000000; font-weight: normal;">nickname:</td>
+                        <td><input class="frmInput" type="text" size="50" name="nickname" value="jack Ma"></td>
+                    </tr>
+                    <tr>
+                        <td class="frmText" style="color: #000000; font-weight: normal;">gender:</td>
+                        <td><input class="frmInput" type="text" size="50" name="gender" value="男"></td>
+                    </tr>
+
+                    <tr>
+                        <td class="frmText" style="color: #000000; font-weight: normal;">头像:</td>
+                        <td><input class="frmInput" type="file" size="50" name="iconUrl" id="iconUrl"></td>
+                    </tr>
+                    <tr>
+                        <td class="frmText" style="color: #000000; font-weight: normal;">latitude:</td>
+                        <td><input class="frmInput" type="text" size="50" name="latitude"></td>
+                    </tr>
+                    <tr>
+                        <td class="frmText" style="color: #000000; font-weight: normal;">longitude:</td>
+                        <td><input class="frmInput" type="text" size="50" name="longitude"></td>
+                    </tr>
+                    <tr>
+                        <td class="frmText" style="color: #000000; font-weight: normal;">intro:</td>
+                        <td><input class="frmInput" type="text" size="50" name="intro"></td>
+                    </tr>
+
+                    <tr>
+                        <td></td>
+                        <td align="center"><input type="submit" value="提交" class="button"></td>
+                    </tr>
+                </table>
+
+
+            </form>
+        </td>
+    </tr>
+    <tr>
+        <td>&nbsp;</td>
+    </tr>
+
+    <tr>
+        <td>&nbsp;</td>
+    </tr>
+</table>
+<table width="1024" border="0" cellspacing="0" cellpadding="0">
+    <tr>
+        <td>
+            <h2>升级接口</h2>
+        </td>
+    </tr>
+    <tr>
+        <td>&nbsp;</td>
+    </tr>
+    <tr>
+        <td>
+            <table border="1" cellspacing="0" cellpadding="0" width="100%">
+                <tr>
+                    <td width="571">
+                        <p><strong>Client --&gt; Server</strong><strong> </strong></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="571">
+                        <p>get     /apkUpdate.jsp<strong> </strong><br>
+                            （以下为参数描述）<br>
+                        </p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="571">
+                        <p><strong>Server --&gt; Client</strong><strong> </strong></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="571">
+                        <p>&nbsp;</p>
+                    </td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+    <tr>
+        <td>&nbsp;</td>
+    </tr>
+    <tr>
+        <td>
+            <h2>测试</h2>
+        </td>
+    </tr>
+    <tr>
+        <td>&nbsp;</td>
+    </tr>
+    <tr>
+        <td>
+            <form target="_blank" action='apkUpdate.jsp' method="get">
+                <table cellspacing="0" cellpadding="4" frame="box" bordercolor="#dcdcdc" rules="none"
+                       style="border-collapse: collapse;">
+                    <tr>
+                        <td background="#dcdcdc" bgcolor="#CCCCCC" class="frmHeader"
+                            style="border-right: 2px solid white;">参数
+                        </td>
+                        <td background="#dcdcdc" bgcolor="#CCCCCC" class="frmHeader">值</td>
+                    </tr>
+                    <tr>
+                        <td class="frmText" style="color: #000000; font-weight: normal;">username:</td>
+                        <td><input class="frmInput" type="text" size="50" name="username"></td>
+                    </tr>
+
+                    <tr>
+                        <td></td>
+                        <td align="center"><input type="submit" value="提交" class="button"></td>
+                    </tr>
+                </table>
+            </form>
+        </td>
+    </tr>
+    <tr>
+        <td>&nbsp;</td>
+    </tr>
+    <tr>
+        <td>&nbsp;</td>
+    </tr>
+</table>
+<p>&nbsp;</p>
+<table width="1024" border="0" cellspacing="0" cellpadding="0">
+    <tr>
+        <td>
+            <h2>查询附近用户接口</h2>
+        </td>
+    </tr>
+    <tr>
+        <td>&nbsp;</td>
+    </tr>
+    <tr>
+        <td>
+            <table border="1" cellspacing="0" cellpadding="0" width="571">
+                <tr>
+                    <td width="571">
+                        <p><strong>Client --&gt; Server</strong><strong> </strong></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="571">
+                        <p>post     /queryNearbyUser.jsp<strong> </strong><br>
+                            （以下为参数描述）<br>
+                            username=username&amp;md5password=md5password&amp;pageIndex=pageIndex&amp;rowNum=rowNum</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="571">
+                        <p><strong>Server --&gt; Client</strong><strong> </strong></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="571">
+                        <p>&nbsp;</p>
+                    </td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+    <tr>
+        <td>&nbsp;</td>
+    </tr>
+    <tr>
+        <td>
+            <h2>测试</h2>
+        </td>
+    </tr>
+    <tr>
+        <td>&nbsp;</td>
+    </tr>
+    <tr>
+        <td>
+            <form target="_blank" action='queryNearbyUser.jsp' method="POST"
+                  enctype="application/x-www-form-urlencoded">
+                <table cellspacing="0" cellpadding="4" frame="box" bordercolor="#dcdcdc" rules="none"
+                       style="border-collapse: collapse;">
+                    <tr>
+                        <td background="#dcdcdc" bgcolor="#CCCCCC" class="frmHeader"
+                            style="border-right: 2px solid white;">参数
+                        </td>
+                        <td background="#dcdcdc" bgcolor="#CCCCCC" class="frmHeader">值</td>
+                    </tr>
+                    <tr>
+                        <td class="frmText" style="color: #000000; font-weight: normal;">username:</td>
+                        <td><input name="username" type="text" class="frmInput" id="username" value="jiujun" size="50">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="frmText" style="color: #000000; font-weight: normal;">md5password:</td>
+                        <td><input name="md5password" type="text" class="frmInput" id="md5password"
+                                   value="c4ca4238a0b923820dcc509a6f75849b" size="50"></td>
+                    </tr>
+                    <tr>
+                        <td class="frmText" style="color: #000000; font-weight: normal;">pageIndex:</td>
+                        <td><input name="pageIndex" type="text" class="frmInput" id="md5password" value="1" size="50">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="frmText" style="color: #000000; font-weight: normal;">rowNum:</td>
+                        <td><input name="rowNum" type="text" class="frmInput" id="md5password" value="2" size="50"></td>
+                    </tr>
+                    <tr>
+                        <td class="frmText" style="color: #000000; font-weight: normal;">latitude:</td>
+                        <td><input name="latitude" type="text" class="frmInput" id="username" value="0.0" size="50">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="frmText" style="color: #000000; font-weight: normal;">longitude:</td>
+                        <td><input name="longitude" type="text" class="frmInput" id="md5password" value="0.000000"
+                                   size="50"></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td align="center"><input type="submit" value="提交" class="button"></td>
+                    </tr>
+                </table>
+            </form>
+        </td>
+    </tr>
+    <tr>
+        <td>&nbsp;</td>
+    </tr>
+    <tr>
+        <td>&nbsp;</td>
+    </tr>
+</table>
+<table width="1024" border="0" cellspacing="0" cellpadding="0">
+    <tr>
+        <td>
+            <h2>查询用户个人详细信息接口</h2>
+        </td>
+    </tr>
+    <tr>
+        <td>&nbsp;</td>
+    </tr>
+    <tr>
+        <td>
+            <table border="1" cellspacing="0" cellpadding="0" width="571">
+                <tr>
+                    <td width="571">
+                        <p><strong>Client --&gt; Server</strong><strong> </strong></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="571">
+                        <p>post     /queryUserDetail.jsp<strong> </strong><br>
+                            （以下为参数描述）<br>
+                            username=username&amp;md5password=md5password<strong> </strong></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="571">
+                        <p><strong>Server --&gt; Client</strong><strong> </strong></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="571">
+                        <p>&nbsp;</p>
+                    </td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+    <tr>
+        <td>&nbsp;</td>
+    </tr>
+    <tr>
+        <td>
+            <h2>测试</h2>
+        </td>
+    </tr>
+    <tr>
+        <td>&nbsp;</td>
+    </tr>
+    <tr>
+        <td>
+            <form target="_blank" action='queryUserDetail.jsp' method="POST"
+                  enctype="application/x-www-form-urlencoded">
+                <table cellspacing="0" cellpadding="4" frame="box" bordercolor="#dcdcdc" rules="none"
+                       style="border-collapse: collapse;">
+                    <tr>
+                        <td background="#dcdcdc" bgcolor="#CCCCCC" class="frmHeader"
+                            style="border-right: 2px solid white;">参数
+                        </td>
+                        <td background="#dcdcdc" bgcolor="#CCCCCC" class="frmHeader">值</td>
+                    </tr>
+                    <tr>
+                        <td class="frmText" style="color: #000000; font-weight: normal;">username:</td>
+                        <td><input name="username" type="text" class="frmInput" value="zhangjiujun" size="50"></td>
+                    </tr>
+                    <tr>
+                        <td class="frmText" style="color: #000000; font-weight: normal;">md5password:</td>
+                        <td><input name="md5password" type="text" class="frmInput" value="md5password" size="50"></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td align="center"><input type="submit" value="提交" class="button"></td>
+                    </tr>
+                </table>
+            </form>
+        </td>
+    </tr>
+    <tr>
+        <td>&nbsp;</td>
+    </tr>
+    <tr>
+        <td>&nbsp;</td>
+    </tr>
+</table>
+
+<table width="1024" border="0" cellspacing="0" cellpadding="0">
+    <tr>
+        <td>
+            <h2>运动圈发表话题接口</h2>
+        </td>
+    </tr>
+    <tr>
+        <td>&nbsp;</td>
+    </tr>
+    <tr>
+        <td>
+            <table border="1" cellspacing="0" cellpadding="0" width="100%">
+                <tr>
+                    <td width="571">
+                        <p><strong>Client --&gt; Server</strong><strong> </strong></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="571">
+                        <p>&nbsp;</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="571">
+                        <p><strong>Server --&gt; Client</strong><strong> </strong></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="571">
+                        <p>&nbsp;</p>
+                    </td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+    <tr>
+        <td>&nbsp;</td>
+    </tr>
+    <tr>
+        <td>
+            <h2>测试</h2>
+        </td>
+    </tr>
+    <tr>
+        <td>&nbsp;</td>
+    </tr>
+    <tr>
+        <td>
+            <form target="_blank" action='addTopic.jsp' method="POST" enctype="multipart/form-data">
+
+                <table cellspacing="0" cellpadding="4" frame="box" bordercolor="#dcdcdc" rules="none"
+                       style="border-collapse: collapse;">
+                    <tr>
+                        <td background="#dcdcdc" bgcolor="#CCCCCC" class="frmHeader"
+                            style="border-right: 2px solid white;">参数
+                        </td>
+                        <td background="#dcdcdc" bgcolor="#CCCCCC" class="frmHeader">值</td>
+                    </tr>
+
+
+                    <tr>
+                        <td class="frmText" style="color: #000000; font-weight: normal;">username:</td>
+                        <td><input class="frmInput" type="text" value="zhangjiujun" size="50" name="username"></td>
+                    </tr>
+                    <tr>
+                        <td class="frmText" style="color: #000000; font-weight: normal;">md5password:</td>
+                        <td><input class="frmInput" type="text" value="md5password" size="50" name="md5password"></td>
+                    </tr>
+                    <tr>
+                        <td class="frmText" style="color: #000000; font-weight: normal;">content:</td>
+                        <td><input class="frmInput" type="text" size="50" name="content" id="content"
+                                   value="市海淀区建材城西路35号"></td>
+                    </tr>
+                    <tr>
+                        <td class="frmText" style="color: #000000; font-weight: normal;">address:</td>
+                        <td><input class="frmInput" type="text" size="50" name="address" id="content"
+                                   value="市海淀区建材城西路35号"></td>
+                    </tr>
+                    <tr>
+                        <td class="frmText" style="color: #000000; font-weight: normal;">图片:</td>
+                        <td><input class="frmInput" type="file" size="50" name="imageUrl" id="imageUrl"></td>
+                    </tr>
+                    <tr>
+                        <td class="frmText" style="color: #000000; font-weight: normal;">latitude:</td>
+                        <td><input class="frmInput" type="text" size="50" name="latitude" value="39.111111"></td>
+                    </tr>
+                    <tr>
+                        <td class="frmText" style="color: #000000; font-weight: normal;">longitude:</td>
+                        <td><input class="frmInput" type="text" size="50" name="longitude" value="106.111111"></td>
+                    </tr>
+
+                    <tr>
+                        <td></td>
+                        <td align="center"><input type="submit" value="提交" class="button"></td>
+                    </tr>
+                </table>
+
+
+            </form>
+        </td>
+    </tr>
+    <tr>
+        <td>&nbsp;</td>
+    </tr>
+
+    <tr>
+        <td>&nbsp;</td>
+    </tr>
+</table>
+
+
+<table width="1024" border="0" cellspacing="0" cellpadding="0">
+    <tr>
+        <td>
+            <h2>运动圈查询话题接口</h2>
+        </td>
+    </tr>
+    <tr>
+        <td>&nbsp;</td>
+    </tr>
+    <tr>
+        <td>
+            <table border="1" cellspacing="0" cellpadding="0" width="100%">
+                <tr>
+                    <td width="571">
+                        <p><strong>Client --&gt; Server</strong><strong> </strong></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="571">
+                        <p>&nbsp;</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="571">
+                        <p><strong>Server --&gt; Client</strong><strong> </strong></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="571">
+                        <p>&nbsp;</p>
+                    </td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+    <tr>
+        <td>&nbsp;</td>
+    </tr>
+    <tr>
+        <td>
+            <h2>测试</h2>
+        </td>
+    </tr>
+    <tr>
+        <td>&nbsp;</td>
+    </tr>
+    <tr>
+        <td>
+            <form target="_blank" action='queryTopic.jsp' method="POST">
+
+                <table cellspacing="0" cellpadding="4" frame="box" bordercolor="#dcdcdc" rules="none"
+                       style="border-collapse: collapse;">
+                    <tr>
+                        <td background="#dcdcdc" bgcolor="#CCCCCC" class="frmHeader"
+                            style="border-right: 2px solid white;">参数
+                        </td>
+                        <td background="#dcdcdc" bgcolor="#CCCCCC" class="frmHeader">值</td>
+                    </tr>
+
+
+                    <tr>
+                        <td class="frmText" style="color: #000000; font-weight: normal;">username:</td>
+                        <td><input class="frmInput" type="text" value="zhangjiujun" size="50" name="username"></td>
+                    </tr>
+                    <tr>
+                        <td class="frmText" style="color: #000000; font-weight: normal;">md5password:</td>
+                        <td><input class="frmInput" type="text" value="md5password" size="50" name="md5password"></td>
+                    </tr>
+
+                    <tr>
+                        <td></td>
+                        <td align="center"><input type="submit" value="提交" class="button"></td>
+                    </tr>
+                </table>
+
+
+            </form>
+        </td>
+    </tr>
+    <tr>
+        <td>&nbsp;</td>
+    </tr>
+
+    <tr>
+        <td>&nbsp;</td>
+    </tr>
+</table>
+<table width="1024" border="0" cellspacing="0" cellpadding="0">
+    <tr>
+        <td>
+            <h2>上传运动数据接口</h2>
+        </td>
+    </tr>
+    <tr>
+        <td>&nbsp;</td>
+    </tr>
+    <tr>
+        <td>
+            <table border="1" cellspacing="0" cellpadding="0" width="100%">
+                <tr>
+                    <td width="571">
+                        <p><strong>Client --&gt; Server</strong><strong> </strong></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="571">
+                        <p>POST   /addSportData.jsp</p>
+                        <p>&nbsp;</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="571">
+                        <p><strong>Server --&gt; Client</strong><strong> </strong></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="571">
+                        <p>&nbsp;</p>
+                    </td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+    <tr>
+        <td>&nbsp;</td>
+    </tr>
+    <tr>
+        <td>
+            <h2>测试</h2>
+        </td>
+    </tr>
+    <tr>
+        <td>&nbsp;</td>
+    </tr>
+    <tr>
+        <td>
+            <form target="_blank" action='addSportData.jsp' method="POST">
+                <table cellspacing="0" cellpadding="4" frame="box" bordercolor="#dcdcdc" rules="none"
+                       style="border-collapse: collapse;">
+                    <tr>
+                        <td background="#dcdcdc" bgcolor="#CCCCCC" class="frmHeader"
+                            style="border-right: 2px solid white;">参数
+                        </td>
+                        <td background="#dcdcdc" bgcolor="#CCCCCC" class="frmHeader">值</td>
+                    </tr>
+                    <tr>
+                        <td class="frmText" style="color: #000000; font-weight: normal;">username:</td>
+                        <td><input class="frmInput" type="text" value="zhangjiujun" size="50" name="username"></td>
+                    </tr>
+                    <tr>
+                        <td class="frmText" style="color: #000000; font-weight: normal;">md5password:</td>
+                        <td><input class="frmInput" type="text" value="md5password" size="50" name="md5password"></td>
+                    </tr>
+                    <tr>
+                        <td class="frmText" style="color: #000000; font-weight: normal;">sportType:</td>
+                        <td><input class="frmInput" type="text" value="跑步" size="50" name="sportType"></td>
+                    </tr>
+                    <tr>
+                        <td class="frmText" style="color: #000000; font-weight: normal;">data:</td>
+                        <td><input class="frmInput" type="text"
+                                   value="111|39.666666|118.128128@222|40.666666|119.128128"
+                                   size="50" name="data"></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td align="center"><input type="submit" value="提交" class="button"></td>
+                    </tr>
+                </table>
+            </form>
+        </td>
+    </tr>
+    <tr>
+        <td>&nbsp;</td>
+    </tr>
+    <tr>
+        <td>&nbsp;</td>
+    </tr>
+</table>
+<table width="1024" border="0" cellspacing="0" cellpadding="0">
+    <tr>
+        <td>
+            <h2>查询附近运动数据接口</h2>
+        </td>
+    </tr>
+    <tr>
+        <td>&nbsp;</td>
+    </tr>
+    <tr>
+        <td>
+            <table border="1" cellspacing="0" cellpadding="0" width="100%">
+                <tr>
+                    <td width="571">
+                        <p><strong>Client --&gt; Server</strong><strong> </strong></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="571">
+                        <p>POST   /queryNearbySportData.jsp</p>
+                        <p>&nbsp;</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="571">
+                        <p><strong>Server --&gt; Client</strong><strong> </strong></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="571">
+                        <p>&nbsp;</p>
+                    </td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+    <tr>
+        <td>&nbsp;</td>
+    </tr>
+    <tr>
+        <td>
+            <h2>测试</h2>
+        </td>
+    </tr>
+    <tr>
+        <td>&nbsp;</td>
+    </tr>
+    <tr>
+        <td>
+            <form target="_blank" action='queryNearbySportData.jsp' method="POST">
+                <table cellspacing="0" cellpadding="4" frame="box" bordercolor="#dcdcdc" rules="none"
+                       style="border-collapse: collapse;">
+                    <tr>
+                        <td background="#dcdcdc" bgcolor="#CCCCCC" class="frmHeader"
+                            style="border-right: 2px solid white;">参数
+                        </td>
+                        <td background="#dcdcdc" bgcolor="#CCCCCC" class="frmHeader">值</td>
+                    </tr>
+                    <tr>
+                        <td class="frmText" style="color: #000000; font-weight: normal;">username:</td>
+                        <td><input class="frmInput" type="text" value="zhangjiujun" size="50" name="username"></td>
+                    </tr>
+                    <tr>
+                        <td class="frmText" style="color: #000000; font-weight: normal;">md5password:</td>
+                        <td><input class="frmInput" type="text" value="md5password" size="50" name="md5password"></td>
+                    </tr>
+                    <tr>
+                        <td class="frmText" style="color: #000000; font-weight: normal;">latitude:</td>
+                        <td><input class="frmInput" type="text" size="50" name="latitude" value="39.111111"></td>
+                    </tr>
+                    <tr>
+                        <td class="frmText" style="color: #000000; font-weight: normal;">longitude:</td>
+                        <td><input class="frmInput" type="text" size="50" name="longitude" value="106.111111"></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td align="center"><input type="submit" value="提交" class="button"></td>
+                    </tr>
+                </table>
+            </form>
+        </td>
+    </tr>
+    <tr>
+        <td>&nbsp;</td>
+    </tr>
+    <tr>
+        <td>&nbsp;</td>
+    </tr>
+</table>
+</body>
+
+</html>

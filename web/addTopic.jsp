@@ -1,18 +1,19 @@
-<%@page import="   util.Tools" %>
-<%@page import="   dao.UserDAO" %>
-<%@page import="   entity.TopicEntity" %>
-<%@page import="   entity.UserEntity" %>
-<%@page import="   util.Const" %>
-<%@page import="org.apache.commons.fileupload.FileItem" %>
+<%@ page import="util.Const" %>
+<%@ page import="java.io.File" %>
+import dao.TopicDAO;
+import entity.TopicEntity;
+import org.apache.commons.fileupload.FileItem;
+import org.apache.commons.fileupload.FileItemFactory;
+import org.apache.commons.fileupload.disk.DiskFileItemFactory;
+import org.apache.commons.fileupload.servlet.ServletFileUpload;
+import util.Const;
+import util.Tools;
 
-<%@page import="org.apache.commons.fileupload.FileItemFactory" %>
-<%@page import="org.apache.commons.fileupload.disk.DiskFileItemFactory" %>
-<%@page import="org.apache.commons.fileupload.servlet.ServletFileUpload" %>
+import java.io.File;
+import java.util.List;
+
 <%@ page contentType="text/html; charset=UTF-8" %>
-<%@page import="   dao.TopicDAO" %>
 
-<%@page import="java.util.*" %>
-<%@ page import="java.io.*" %>
 <%
     long st = 0, dbst = 0, dbet = 0, ent = 0;
     st = System.currentTimeMillis();
