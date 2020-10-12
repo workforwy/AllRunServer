@@ -11,11 +11,13 @@ public class SetCharacterEncodingFilter implements Filter {
     protected FilterConfig filterConfig = null;
     protected boolean ignore = true;
 
+    @Override
     public void destroy() {
         this.encoding = null;
         this.filterConfig = null;
     }
 
+    @Override
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
             throws IOException, ServletException {
         if (ignore || (request.getCharacterEncoding() == null)) {
@@ -26,6 +28,7 @@ public class SetCharacterEncodingFilter implements Filter {
         chain.doFilter(request, response);
     }
 
+    @Override
     public void init(FilterConfig filterConfig) throws ServletException {
 
         this.filterConfig = filterConfig;

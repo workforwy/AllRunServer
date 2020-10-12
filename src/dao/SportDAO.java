@@ -29,10 +29,8 @@ public class SportDAO {
             sportEntitys = new SportEntity[list.size()];
             for (int i = 0; i < list.size(); i++) {
                 String id = String.valueOf(((Map) list.get(i)).get(col_id));
-                String username = String.valueOf(((Map) list.get(i))
-                        .get(col_username));
-                String sportType = String.valueOf(((Map) list.get(i))
-                        .get(col_sportType));
+                String username = String.valueOf(((Map) list.get(i)) .get(col_username));
+                String sportType = String.valueOf(((Map) list.get(i)) .get(col_sportType));
 
                 SportEntity sportEntity = new SportEntity();
                 sportEntity.setId(Integer.parseInt(id));
@@ -43,11 +41,9 @@ public class SportDAO {
 
             }
         } catch (Exception e) {
-            // TODO Auto-generated catch block
             e.printStackTrace();
             Tools.writeException(e);
         }
-
         return sportEntitys;
     }
 
@@ -59,54 +55,44 @@ public class SportDAO {
         int sportId = -1;
         final String uuid = UUID.randomUUID().toString();
         try {
-            String sql = "insert into sport" + "(" + col_username + ","
-                    + col_sportType + "," + col_uuid + ") values(?,?,?)";
+            String sql = "insert into sport" + "(" + col_username + "," + col_sportType + "," + col_uuid + ") values(?,?,?)";
             class SetParam implements SetParameter {
-                public void set(PreparedStatement preparedStatement)
-                        throws Exception {
+                @Override
+                public void set(PreparedStatement preparedStatement) throws Exception {
                     preparedStatement.setString(1, sportEntity.getUsername());
                     preparedStatement.setString(2, sportEntity.getSportType());
                     preparedStatement.setString(3, uuid);
-
                 }
             }
-            Modify modify = new Modify();
 
+            Modify modify = new Modify();
             int count = modify.exec(sql, new SetParam());
             if (count >= 1) {
-
                 try {
                     class SetSelectParam implements SetParameter {
-                        public void set(PreparedStatement preparedStatement)
-                                throws Exception {
-                            preparedStatement.setString(1,
-                                    sportEntity.getUsername());
+                        @Override
+                        public void set(PreparedStatement preparedStatement) throws Exception {
+                            preparedStatement.setString(1, sportEntity.getUsername());
                             preparedStatement.setString(2, uuid);
 
                         }
                     }
-                    sql = "select id from sport " + "where " + col_username
-                            + "=? and " + col_uuid + "=? ";
+                    sql = "select id from sport " + "where " + col_username + "=? and " + col_uuid + "=? ";
 
                     Select select = new Select();
                     List list = select.selectRS(sql, new SetSelectParam());
-                    sportId = Integer.parseInt(String.valueOf(((Map) list.get(0))
-                            .get(col_id)));
+                    sportId = Integer.parseInt(String.valueOf(((Map) list.get(0)).get(col_id)));
 
                 } catch (Exception e) {
-                    // TODO Auto-generated catch block
                     e.printStackTrace();
                     Tools.writeException(e);
                 }
             }
 
         } catch (Exception e) {
-            // TODO Auto-generated catch block
-
             e.printStackTrace();
             Tools.writeException(e);
         }
-
         return sportId;
     }
 }

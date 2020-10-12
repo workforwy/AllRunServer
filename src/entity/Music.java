@@ -1,103 +1,117 @@
 package entity;
 
 public class Music {
-	private String durationtime;
-	private String downcount;
-	private String favcount;
-	private String singer;
-	private String album;
-	private String author;
-	private String composer;
-	private String musicpath;
-	private String name;
-	private String albumpic;
-	private int id;
+    private String durationtime;
+    private String downcount;
+    private String favcount;
+    private String singer;
+    private String album;
+    private String author;
+    private String composer;
+    private String musicpath;
+    private String name;
+    private String albumpic;
+    private int id;
 
-	public void setDurationtime(String durationtime){
-		this.durationtime = durationtime;
-	}
+    public Music(String durationtime, String downcount, String favcount, String singer, String album, String author, String composer, String musicpath, String name, String albumpic, int id) {
+        this.durationtime = durationtime;
+        this.downcount = downcount;
+        this.favcount = favcount;
+        this.singer = singer;
+        this.album = album;
+        this.author = author;
+        this.composer = composer;
+        this.musicpath = musicpath;
+        this.name = name;
+        this.albumpic = albumpic;
+        this.id = id;
+    }
 
-	public String getDurationtime(){
-		return durationtime;
-	}
+    public void setDurationtime(String durationtime) {
+        this.durationtime = durationtime;
+    }
 
-	public void setDowncount(String downcount){
-		this.downcount = downcount;
-	}
+    public String getDurationtime() {
+        return durationtime;
+    }
 
-	public String getDowncount(){
-		return downcount;
-	}
+    public void setDowncount(String downcount) {
+        this.downcount = downcount;
+    }
 
-	public void setFavcount(String favcount){
-		this.favcount = favcount;
-	}
+    public String getDowncount() {
+        return downcount;
+    }
 
-	public String getFavcount(){
-		return favcount;
-	}
+    public void setFavcount(String favcount) {
+        this.favcount = favcount;
+    }
 
-	public void setSinger(String singer){
-		this.singer = singer;
-	}
+    public String getFavcount() {
+        return favcount;
+    }
 
-	public String getSinger(){
-		return singer;
-	}
+    public void setSinger(String singer) {
+        this.singer = singer;
+    }
 
-	public void setAlbum(String album){
-		this.album = album;
-	}
+    public String getSinger() {
+        return singer;
+    }
 
-	public String getAlbum(){
-		return album;
-	}
+    public void setAlbum(String album) {
+        this.album = album;
+    }
 
-	public void setAuthor(String author){
-		this.author = author;
-	}
+    public String getAlbum() {
+        return album;
+    }
 
-	public String getAuthor(){
-		return author;
-	}
+    public void setAuthor(String author) {
+        this.author = author;
+    }
 
-	public void setComposer(String composer){
-		this.composer = composer;
-	}
+    public String getAuthor() {
+        return author;
+    }
 
-	public String getComposer(){
-		return composer;
-	}
+    public void setComposer(String composer) {
+        this.composer = composer;
+    }
 
-	public void setMusicpath(String musicpath){
-		this.musicpath = musicpath;
-	}
+    public String getComposer() {
+        return composer;
+    }
 
-	public String getMusicpath(){
-		return musicpath;
-	}
+    public void setMusicpath(String musicpath) {
+        this.musicpath = musicpath;
+    }
 
-	public void setName(String name){
-		this.name = name;
-	}
+    public String getMusicpath() {
+        return musicpath;
+    }
 
-	public String getName(){
-		return name;
-	}
+    public void setName(String name) {
+        this.name = name;
+    }
 
-	public void setAlbumpic(String albumpic){
-		this.albumpic = albumpic;
-	}
+    public String getName() {
+        return name;
+    }
 
-	public String getAlbumpic(){
-		return albumpic;
-	}
+    public void setAlbumpic(String albumpic) {
+        this.albumpic = albumpic;
+    }
 
-	public void setId(int id){
-		this.id = id;
-	}
+    public String getAlbumpic() {
+        return albumpic;
+    }
 
-	public int getId(){
-		return id;
-	}
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public int getId() {
+        return id;
+    }
 }

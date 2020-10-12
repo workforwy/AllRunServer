@@ -30,7 +30,6 @@
             status = Const.STATUS_LOGIN_ERROR;
             msg = Const.STATUS_LOGIN_ERROR_MSG;
         } else {
-
             SportEntity sportEntity = new SportEntity();
             sportEntity.setUsername(username);
             sportEntity.setSportType(sportType);
@@ -57,21 +56,16 @@
                 status = Const.STATUS_SERVER_ERROR;
                 msg = Const.STATUS_SERVER_ERROR_MSG;
             }
-
-
         }
-
     } catch (Exception e) {//myPic = null;
         status = Const.STATUS_SERVER_ERROR;
         msg = Const.STATUS_SERVER_ERROR_MSG;
-
     } finally {
         //servlets/ApkUpdateServlet输出的中文也是乱码，android 上不乱码
-        StringBuffer buffer = new StringBuffer();
-        buffer.append("{");
-        buffer.append("\"status\":\"" + status + "\",");
-        buffer.append("\"msg\":\"" + msg + "\"");
-        buffer.append("}");
-        out.write(buffer.toString());
+        String buffer = "{" +
+                "\"status\":\"" + status + "\"," +
+                "\"msg\":\"" + msg + "\"" +
+                "}";
+        out.write(buffer);
     }
 %>

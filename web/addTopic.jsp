@@ -1,18 +1,15 @@
 <%@ page import="util.Const" %>
 <%@ page import="java.io.File" %>
-import dao.TopicDAO;
-import entity.TopicEntity;
-import org.apache.commons.fileupload.FileItem;
-import org.apache.commons.fileupload.FileItemFactory;
-import org.apache.commons.fileupload.disk.DiskFileItemFactory;
-import org.apache.commons.fileupload.servlet.ServletFileUpload;
-import util.Const;
-import util.Tools;
+<%@ page import="util.Tools" %>
+<%@ page import="org.apache.commons.fileupload.FileItem" %>
+<%@ page import="java.util.List" %>
+<%@ page import="org.apache.commons.fileupload.FileItemFactory" %>
+<%@ page import="org.apache.commons.fileupload.servlet.ServletFileUpload" %>
+<%@ page import="org.apache.commons.fileupload.disk.DiskFileItemFactory" %>
+<%@ page import="entity.TopicEntity" %>
+<%@ page import="dao.TopicDAO" %>
 
-import java.io.File;
-import java.util.List;
-
-<%@ page contentType="text/html; charset=UTF-8" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 
 <%
     long st = 0, dbst = 0, dbet = 0, ent = 0;
@@ -21,16 +18,12 @@ import java.util.List;
     request.setCharacterEncoding("UTF-8");
     boolean isHasImage = false;
 
-
     int status = Const.STATUS_OK;
     String msg = Const.STATUS_OK_MSG, iconUrl = "";
+
     try {
         String imageSaveRooot = "topicImage";
-        String username = "", md5password = "", nickname = "";
-        String content = "";
-        String latitude = "";
-        String longitude = "";
-        String address = "";
+        String username = "", md5password = "", nickname = "", content = "", latitude = "", longitude = "", address = "";
 
         String path = application.getRealPath("/");
         path = path + imageSaveRooot;
@@ -47,7 +40,7 @@ import java.util.List;
 
         List items = sfu.parseRequest(request);
         for (int i = 0; i < items.size(); i++) {
-            FileItem item = items.get(i);
+            FileItem item = (FileItem) items.get(i);
             if (!item.isFormField()) {
                 String fileName = item.getName();
                 String extName = fileName.substring(fileName.lastIndexOf(".") + 1);
@@ -106,22 +99,17 @@ import java.util.List;
             topicEntity.setContent(content);
             topicEntity.setImageUrl(iconUrl);
             topicEntity.setAddress(address);
-            topicEntity.setLatitude(Double
-                    .parseDouble(latitude));
-            topicEntity.setLongitude(Double
-                    .parseDouble(longitude));
+            topicEntity.setLatitude(Double.parseDouble(latitude));
+            topicEntity.setLongitude(Double.parseDouble(longitude));
             topicEntity.setCreateTime(createTime);
             dbst = System.currentTimeMillis();
 
             TopicDAO topicDAO = new TopicDAO();
             topicDAO.addTopic(topicEntity);
             dbet = System.currentTimeMillis();
-
         }
-
-    } catch (Exception e) {//myPic = null;
+    } catch (Exception e) {
         e.printStackTrace();
-
     } finally {
         if (!isHasImage) {
             status = Const.STATUS_NO_FILE;
@@ -142,5 +130,6 @@ import java.util.List;
         System.out.println("dbst=" + dbst);
         System.out.println("dbet=" + dbet);
         System.out.println("ent=" + ent);
+        out.isAutoFlush();
     }
 %>
