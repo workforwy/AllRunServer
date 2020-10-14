@@ -4,6 +4,9 @@ import java.io.*;
 import java.util.ArrayList;
 import java.util.StringTokenizer;
 
+/**
+ * @author wangyong
+ */
 public class FileOperate {
     private String message;
     Log logger = Log.getInstance();
@@ -18,12 +21,11 @@ public class FileOperate {
         try {
 
             //String file="c:\\12.txt";
-//   		
 //   		String ChapterDir = "c://1";
 //		String zipPath = "c://1//12.zip";;
 //		Vector fileNames = ZipUtils.unZip(zipPath, ChapterDir);
 //   		String file="c:\\1";
-//   		
+//
 //   		FileOperate o=new FileOperate();
 //   		//o.delFile(file);
 //   		o.delFolder(file);
@@ -46,7 +48,7 @@ public class FileOperate {
     /**
      * 读取一个文件夹下的所有文件名
      *
-     * @param path 带有完整绝对路径的文件夹名
+     * @param Path 带有完整绝对路径的文件夹名
      * @return 返回List 文件名的
      */
     public void reName(String Path, String lang) {

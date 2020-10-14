@@ -1,17 +1,16 @@
 package dao.conn;
 
-import util.Log;
-
-import java.io.*;
-import java.sql.*;
-import java.util.*;
+import java.io.InputStream;
+import java.sql.Connection;
+import java.util.Enumeration;
+import java.util.Hashtable;
+import java.util.Properties;
+import java.util.Vector;
 
 /**
  * 连接池管理类,可以管理多个数据库连接池
  */
 public class DBConnManager {
-
-    Log logger = Log.getInstance();
     //连接池名列表
     private Vector poolnames = new Vector();
     //驱动程序名列表
@@ -31,7 +30,7 @@ public class DBConnManager {
 
     public DBConnManager() {
         try {
-            InputStream is = getClass().getResourceAsStream("/db.properties");
+            InputStream is = getClass().getResourceAsStream("../db.properties");
             Properties pro = new Properties();
             pro.load(is);
             //添加mysql数据库的连接信息
@@ -43,20 +42,24 @@ public class DBConnManager {
             maxconns.addElement(pro.getProperty("maxconns"));
         } catch (Exception e) {
             System.out.print(e);
-//            logger.sysException.info(""+e);
         }
         //创建连接池
         createPools();
     }
 
-    /*将连接返回给由指定的连接池*/
+    /**
+     * 将连接返回给由指定的连接池
+     */
     public void releaseConnection(String name, Connection con) {
         DBConnPool pool = (DBConnPool) connPools.get(name);
-        if (pool != null)
+        if (pool != null) {
             pool.releaseConnection(con);
+        }
     }
 
-    /*得到一个指定连接池中的连接*/
+    /**
+     * 得到一个指定连接池中的连接
+     */
     public Connection getConnection(String name) {
         DBConnPool pool = (DBConnPool) connPools.get(name);
         if (pool != null)
@@ -64,7 +67,9 @@ public class DBConnManager {
         return null;
     }
 
-    /*关闭所有连接*/
+    /**
+     * 关闭所有连接
+     */
     public synchronized void closeConns() {
         Enumeration allPools = connPools.elements();
         while (allPools.hasMoreElements()) {
@@ -73,7 +78,9 @@ public class DBConnManager {
         }
     }
 
-    /*创建连接池*/
+    /**
+     * 创建连接池
+     */
     private void createPools() {
         for (int i = 0; i < poolnames.size(); i++) {
             String poolname = poolnames.elementAt(i).toString();
@@ -86,24 +93,31 @@ public class DBConnManager {
                 maxconn = Integer.parseInt(maxconns.elementAt(i).toString());
             } catch (NumberFormatException e) {
                 e.printStackTrace();
-                ////logger.sysException.info("",e);
             }
             DBConnPool pool = new DBConnPool(poolname, drivername, dbid, username, passwd, maxconn);
             connPools.put(poolname, pool);
         }
     }
 
+    /**
+     * 获取可用最大连接数
+     *
+     * @param name
+     * @return
+     */
     public static int getLinkNum(String name) {
         DBConnPool pool = (DBConnPool) connPools.get(name);
         return pool.getInUse();
     }
 
-    static synchronized public DBConnManager getInstance() {
-        if (instance == null) {                                         //判断本类的静态实例对象是否有值
-            instance = new DBConnManager();                         //没有：生成一个本类的实例
+    public static synchronized DBConnManager getInstance() {
+        //判断本类的静态实例对象是否有值
+        if (instance == null) {
+            //没有：生成一个本类的实例
+            instance = new DBConnManager();
         }
-        return instance;                                                //返回本类的实例对象
+        //返回本类的实例对象
+        return instance;
     }
-
 }
 

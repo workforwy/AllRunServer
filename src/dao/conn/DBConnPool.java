@@ -9,7 +9,6 @@ import java.util.*;
  * 连接池类.能够根据要求创建新连接,直到最大连接数为止.
  */
 public class DBConnPool {
-    Log logger = Log.getInstance();
     //实际使用中的连接数
     private int inUse = 0;
     //空闲连接
@@ -37,7 +36,9 @@ public class DBConnPool {
         this.maxconn = maxconn;
     }
 
-    /*将连接返回给连接池*/
+    /**
+     * 将连接返回给连接池
+     */
     public synchronized void releaseConnection(Connection con) {
         // 将指定连接加入到向量末尾
         connections.addElement(con);
@@ -45,7 +46,9 @@ public class DBConnPool {
         inUse--;
     }
 
-    /*从连接池得到一个连接*/
+    /**
+     * 从连接池得到一个连接
+     */
     public synchronized Connection getConnection() {
         Connection con = null;
         if (connections.size() > 0) {
@@ -54,12 +57,11 @@ public class DBConnPool {
             connections.removeElementAt(0);
             //如果此连接已关闭，则继续获取
             try {
-                if (con.isClosed()) con = getConnection();
+                if (con.isClosed()) {
+                    con = getConnection();
+                }
             } catch (Exception ex) {
                 ex.printStackTrace();
-
-                ////logger.sysException.info("",ex);
-
             }
         }
         //如果实际使用的连接小于最大连接数，就新创建一个连接
@@ -72,11 +74,12 @@ public class DBConnPool {
             link++;
         }
         //返回一个连接
-
         return con;
     }
 
-    /*创建新的连接*/
+    /**
+     * 创建新的连接
+     */
     private Connection newConnection() {
         Connection con = null;
         try {
@@ -93,7 +96,9 @@ public class DBConnPool {
         return con;
     }
 
-    /*关闭所有连接*/
+    /**
+     * 关闭所有连接
+     */
     public synchronized void closeConn() {
         Enumeration allConnections = connections.elements();
         while (allConnections.hasMoreElements()) {
@@ -102,7 +107,6 @@ public class DBConnPool {
                 con.close();
             } catch (SQLException e) {
                 e.printStackTrace();
-                ////logger.sysException.info("",e);
             }
         }
         connections.removeAllElements();

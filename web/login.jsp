@@ -2,6 +2,7 @@
 	try {
 		String username = request.getParameter("username");
 		String password = request.getParameter("password");
+
 		if ("admin".equals(username) && "1".equals(password)) {
 			out.print("login succeed");
 		} else {

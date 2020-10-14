@@ -10,6 +10,7 @@ import java.text.SimpleDateFormat;
 import java.util.*;
 
 public class Tools {
+
     public static String addZero(String str, int maxLen) {
         String strZero = "";
         int len = str.trim().length();
@@ -36,17 +37,13 @@ public class Tools {
 
     public static void writeException(Exception e) {
         e.printStackTrace();
-        //Log loger = Log.getInstance();
-        //String content = Tools.getExceptionStackTraceString(e);
-        //	loger.sysException.info(content);
+        String content = Tools.getExceptionStackTraceString(e);
+        Log.getInstance().sysException.info(content);
 
     }
 
     public static void writeLog(String content) {
-        Log loger = Log.getInstance();
-
-        //loger.sysException.info(content);
-
+        Log.getInstance().sysException.info(content);
     }
 
     static Log logger = Log.getInstance();
@@ -72,23 +69,19 @@ public class Tools {
 
     public static void main(String[] args) {
         try {
-
-            // Calendar cal = Calendar.getInstance();
-            // cal.set(2007,1,1);
-            // int maxDate = cal.getActualMaximum(Calendar.DATE);
-            // System.out.println(maxDate);
-            // for (int i=1;i<=12;i++)
-            // {
-            // System.out.print(i+"---");
-            // Tools.getLastDay(2008,i);
-            // }
-            //
+            Calendar cal = Calendar.getInstance();
+            cal.set(2007, 1, 1);
+            int maxDate = cal.getActualMaximum(Calendar.DATE);
+            System.out.println(maxDate);
+            for (int i = 1; i <= 12; i++) {
+                System.out.print(i + "---");
+                Tools.getLastDay(2008, i);
+            }
             System.out.println(Tools.addZero("1", 4));
 
         } catch (Exception e) {
             System.out.println(e);
         }
-
     }
 
     /**

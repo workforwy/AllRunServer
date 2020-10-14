@@ -32,10 +32,7 @@ public class PageStatus {
      * @return html×Ö·û´®
      * @throws Exception
      */
-    public static String getStartYearMonthDayHourHtml(
-            HttpServletRequest request, String yearSessionName,
-            String MonthSessionName, String DaySessionName,
-            String HourSessionName) throws Exception {
+    public static String getStartYearMonthDayHourHtml(HttpServletRequest request, String yearSessionName, String MonthSessionName, String DaySessionName, String HourSessionName) throws Exception {
         HttpSession session = request.getSession(true);
         int[] defautStartDate = Tools.getDefaultStartDate();
 

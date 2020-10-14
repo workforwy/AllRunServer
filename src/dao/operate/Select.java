@@ -5,29 +5,13 @@ import util.*;
 
 import java.sql.*;
 import java.util.*;
-//import com.raymobile.wap.common.Tools;
 
 /**
  * 读数据库,接受select
+ * @author wangyong
  */
 public class Select {
-    Log logger = Log.getInstance();
 
-    //private String sql;
-    public Select() {
-    }
-
-    //	public Select(String sqlcom)
-//	{
-//		this.sql=sqlcom;		
-//	}
-//	public List selectRS(String sqlStr)
-//	{
-//		this.sql = sqlStr;
-//		//System.out.println(sql);		
-//		return selectRS(); 
-//	}
-//	
     public List selectRS(String sql) {
         List rsall = new ArrayList();
         DBConnManager conn = null;
@@ -55,12 +39,15 @@ public class Select {
             Tools.writeException(ex);
         } finally {
             try {
-                if (rs != null)
+                if (rs != null) {
                     rs.close();
-                if (stmt != null)
+                }
+                if (stmt != null) {
                     stmt.close();
-                if (conn != null)
+                }
+                if (conn != null) {
                     conn.releaseConnection("mssql", con);
+                }
             } catch (Exception e) {
                 Tools.writeException(e);
             }
@@ -96,12 +83,15 @@ public class Select {
             Tools.writeException(ex);
         } finally {
             try {
-                if (rs != null)
+                if (rs != null) {
                     rs.close();
-                if (stmt != null)
+                }
+                if (stmt != null) {
                     stmt.close();
-                if (conn != null)
+                }
+                if (conn != null) {
                     conn.releaseConnection("mssql", con);
+                }
             } catch (Exception e) {
                 Tools.writeException(e);
             }
@@ -110,17 +100,19 @@ public class Select {
     }
 
     public String intercept(String str, int num, String last) {
-        if (str.length() <= num)
+        if (str.length() <= num) {
             return str;
-        else
+        } else {
             return str.substring(0, num) + last;
+        }
     }
 
     public boolean checklogin(String sql) {
-        if (!selectRS(sql).isEmpty())
+        if (!selectRS(sql).isEmpty()) {
             return true;
-        else
+        } else {
             return false;
+        }
     }
 
     public String subURL(String url, String str) {

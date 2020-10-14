@@ -1,31 +1,30 @@
+<%@page contentType="text/html; charset=UTF-8" %>
+
 <%@page import="   dao.TraceDAO" %>
-<%@page import="util.Tools" %>
 <%@page import="   entity.TraceEntity" %>
 <%@page import="   entity.SportEntity" %>
 <%@page import="   dao.SportDAO" %>
 <%@page import="   dao.UserDAO" %>
 <%@page import="   entity.UserEntity" %>
 <%@page import="   util.Const" %>
-<%@page contentType="text/html; charset=UTF-8" %>
-<%@page import="java.util.*" %>
+<%@ page import="util.Tools" %>
 <%
     int status = Const.STATUS_OK;
     String msg = Const.STATUS_OK_MSG;
     UserEntity userEntity = null;
-    boolean userIsExist = false;
-    try {
 
+    try {
         String username = request.getParameter("username");
         String md5password = request.getParameter("md5password");
-        username = Tools.FileToUtf8(username);
 
+        username = Tools.FileToUtf8(username);
         md5password = Tools.FileToUtf8(md5password);
 
         String sportType = request.getParameter("sportType");
         String data = request.getParameter("data");
 
         UserDAO userDAO = new UserDAO();
-        userIsExist = userDAO.checkUserIsExist(username, md5password);
+        boolean userIsExist = userDAO.checkUserIsExist(username, md5password);
         if (!userIsExist) {
             status = Const.STATUS_LOGIN_ERROR;
             msg = Const.STATUS_LOGIN_ERROR_MSG;

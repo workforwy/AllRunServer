@@ -12,8 +12,7 @@ public class Log {
 
     public int i = 0;
 
-    private Log() throws Exception {
-
+    private Log() {
         sysException = null;
         //使用相对路径
         String path = (Log.class.getClassLoader().getResource("")).toString();

@@ -1,16 +1,17 @@
+<%@ page contentType="text/html; charset=UTF-8" %>
+
+<%@page import="org.apache.commons.fileupload.FileItem" %>
+<%@page import="org.apache.commons.fileupload.FileItemFactory" %>
+<%@page import="org.apache.commons.fileupload.disk.DiskFileItemFactory" %>
+<%@page import="org.apache.commons.fileupload.servlet.ServletFileUpload" %>
+
 <%@page import="   util.Tools" %>
 <%@page import="   dao.UserDAO" %>
 <%@page import="   entity.UserEntity" %>
 <%@page import="   util.Const" %>
-<%@page import="org.apache.commons.fileupload.FileItem" %>
+<%@ page import="java.io.File" %>
+<%@ page import="java.util.List" %>
 
-<%@page import="org.apache.commons.fileupload.FileItemFactory" %>
-<%@page import="org.apache.commons.fileupload.disk.DiskFileItemFactory" %>
-<%@page import="org.apache.commons.fileupload.servlet.ServletFileUpload" %>
-<%@ page contentType="text/html; charset=UTF-8" %>
-
-<%@page import="java.util.*" %>
-<%@ page import="java.io.*" %>
 <%
     long st = 0, dbst = 0, dbet = 0, ent = 0;
     st = System.currentTimeMillis();
@@ -47,21 +48,15 @@
             FileItem item = items.get(i);
             if (!item.isFormField()) {
                 String fileName = item.getName();
-                String extName = fileName.substring(fileName
-                        .lastIndexOf(".") + 1);
-                if (allowExtNames.indexOf(extName) != -1) {
-                    //out.println("fileName=" + fileName);
-
+                String extName = fileName.substring(fileName.lastIndexOf(".") + 1);
+                if (allowExtNames.contains(extName)) {
                     iconUrl = imageSaveRooot + "/" + fileName;
-
-                    item.write(new File(application.getRealPath("/") +
-                            iconUrl));
+                    item.write(new File(application.getRealPath("/") + iconUrl));
                     isHasImage = true;
                 }
             } else {
                 String fieldName = item.getFieldName();
                 String vlaue = item.getString();
-                //out.println(fieldName + " : " + vlaue);
                 if ("username".equals(fieldName)) {
                     vlaue = Tools.ToUtf8(vlaue);
                     username = vlaue;
@@ -89,8 +84,6 @@
                 if ("longitude".equals(fieldName)) {
                     longitude = vlaue;
                 }
-
-
             }
         }
 
@@ -118,10 +111,10 @@
             userEntity.setIntro(intro);
             userEntity.setRegTime(regTime);
             dbst = System.currentTimeMillis();
+
             UserDAO userDAO = new UserDAO();
             userDAO.register(userEntity);
             dbet = System.currentTimeMillis();
-
         }
 
     } catch (Exception e) {//myPic = null;

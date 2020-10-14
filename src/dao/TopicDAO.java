@@ -80,6 +80,7 @@ public class TopicDAO {
                     + "," + col_latitude + "," + col_longitude + ","
                     + col_createTime + ") values(?,?,?,?,?,?,?)";
             class SetParam implements SetParameter {
+                @Override
                 public void set(PreparedStatement preparedStatement)
                         throws Exception {
                     preparedStatement.setString(1, topicEntity.getUsername());

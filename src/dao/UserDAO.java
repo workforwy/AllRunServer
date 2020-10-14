@@ -28,15 +28,14 @@ public class UserDAO {
     public boolean checkUserIsExist(final String username, final String md5Password) {
         try {
             class SetParam implements SetParameter {
-                public void set(PreparedStatement preparedStatement)
-                        throws Exception {
+                @Override
+                public void set(PreparedStatement preparedStatement) throws Exception {
                     preparedStatement.setString(1, username);
                     preparedStatement.setString(2, md5Password);
 
                 }
             }
-            String sql = "select * from user "
-                    + "where " + col_username + "=? and " + col_md5password + "=? ";
+            String sql = "select * from user " + "where " + col_username + "=? and " + col_md5password + "=? ";
 
             Select select = new Select();
             List list = select.selectRS(sql, new SetParam());
@@ -45,69 +44,92 @@ public class UserDAO {
                 return true;
             }
         } catch (Exception e) {
-            // TODO Auto-generated catch block
             e.printStackTrace();
             Tools.writeException(e);
         }
         return false;
     }
 
+    /**
+     * 根据姓名和密码查询
+     *
+     * @param username
+     * @param md5Password
+     * @return
+     */
     public UserEntity queryDetailByUsername(final String username, final String md5Password) {
         UserEntity userEntity = new UserEntity();
         try {
-            class SetParam implements SetParameter {
-                public void set(PreparedStatement preparedStatement)
-                        throws Exception {
-                    preparedStatement.setString(1, username);
-                    preparedStatement.setString(2, md5Password);
-
-                }
-            }
-            String sql = "select * from user "
-                    + "where " + col_username + "=? and " + col_md5password + "=? ";
-
-            Select select = new Select();
-            List list = select.selectRS(sql, new SetParam());
-
-            int i = 0;
-            String id = String.valueOf(((Map) list.get(i)).get(col_id));
-
-            String md5password = String.valueOf(((Map) list.get(i))
-                    .get(col_md5password));
-            String nickname = String.valueOf(((Map) list.get(i))
-                    .get(col_nickname));
-            String gender = String.valueOf(((Map) list.get(i))
-                    .get(col_gender));
-            String iconUrl = String.valueOf(((Map) list.get(i))
-                    .get(col_iconUrl));
-            String latitude = String.valueOf(((Map) list.get(i))
-                    .get(col_latitude));
-            String longitude = String.valueOf(((Map) list.get(i))
-                    .get(col_longitude));
-            String intro = String.valueOf(((Map) list.get(i))
-                    .get(col_intro));
-            String regTime = String.valueOf(((Map) list.get(i))
-                    .get(col_regTime));
-
-            userEntity.setId(Integer.parseInt(id));
-            userEntity.setUsername(username);
-            userEntity.setMd5password(md5password);
-            userEntity.setNickname(nickname);
-            userEntity.setGender(gender);
-            userEntity.setIconUrl(iconUrl);
-            userEntity.setLatitude(Double.parseDouble(latitude));
-            userEntity.setLongitude(Double.parseDouble(longitude));
-            userEntity.setIntro(intro);
-            userEntity.setRegTime(Double.parseDouble(regTime));
-
+            String sql = "select * from user " + "where " + col_username + "=? and " + col_md5password + "=? ";
+            List list = new Select().selectRS(sql, new SetParam(username, md5Password));
+            userEntity = setIntoEntity(list, userEntity);
         } catch (Exception e) {
-            // TODO Auto-generated catch block
             e.printStackTrace();
             Tools.writeException(e);
         }
         return userEntity;
     }
 
+    static class SetParam implements SetParameter {
+
+        private String username, md5Password;
+
+        public SetParam(String username, String md5Password) {
+            this.username = username;
+            this.md5Password = md5Password;
+        }
+
+        @Override
+        public void set(PreparedStatement preparedStatement) throws Exception {
+            preparedStatement.setString(1, username);
+            preparedStatement.setString(2, md5Password);
+        }
+    }
+
+    private UserEntity setIntoEntity(Object entity, UserEntity userEntity) {
+        String id = getValue(entity, col_id);
+        String username = getValue(entity, col_username);
+        String md5password = getValue(entity, col_md5password);
+        String nickname = getValue(entity, col_nickname);
+        String gender = getValue(entity, col_gender);
+        String iconUrl = getValue(entity, col_iconUrl);
+        String latitude = getValue(entity, col_latitude);
+        String longitude = getValue(entity, col_longitude);
+        String intro = getValue(entity, col_intro);
+        String regTime = getValue(entity, col_regTime);
+
+        if (Tools.isNull(latitude)) {
+            latitude = "0";
+        }
+        if (Tools.isNull(longitude)) {
+            longitude = "0";
+        }
+        if (Tools.isNull(regTime)) {
+            regTime = "0";
+        }
+
+        userEntity.setId(Integer.parseInt(id));
+        userEntity.setUsername(username);
+        userEntity.setMd5password(md5password);
+        userEntity.setNickname(nickname);
+        userEntity.setGender(gender);
+        userEntity.setIconUrl(iconUrl);
+        userEntity.setLatitude(Double.parseDouble(latitude));
+        userEntity.setLongitude(Double.parseDouble(longitude));
+        userEntity.setIntro(intro);
+        userEntity.setRegTime(Double.parseDouble(regTime));
+        return userEntity;
+    }
+
+    private String getValue(Object entity, String key) {
+        return String.valueOf(((Map) entity).get(key));
+    }
+
+    /**
+     * 查询全部数据
+     *
+     * @return
+     */
     public UserEntity[] queryAll() {
         UserEntity[] userEntitys = null;
         try {
@@ -122,50 +144,23 @@ public class UserDAO {
             List list = select.selectRS(sql);
             userEntitys = new UserEntity[list.size()];
             for (int i = 0; i < list.size(); i++) {
-                String id = String.valueOf(((Map) list.get(i)).get(col_id));
-                String username = String.valueOf(((Map) list.get(i))
-                        .get(col_username));
-                String md5password = String.valueOf(((Map) list.get(i))
-                        .get(col_md5password));
-                String nickname = String.valueOf(((Map) list.get(i))
-                        .get(col_nickname));
-                String gender = String.valueOf(((Map) list.get(i))
-                        .get(col_gender));
-                String iconUrl = String.valueOf(((Map) list.get(i))
-                        .get(col_iconUrl));
-                String latitude = String.valueOf(((Map) list.get(i))
-                        .get(col_latitude));
-                String longitude = String.valueOf(((Map) list.get(i))
-                        .get(col_longitude));
-                String intro = String.valueOf(((Map) list.get(i))
-                        .get(col_intro));
-                String regTime = String.valueOf(((Map) list.get(i))
-                        .get(col_regTime));
-
                 UserEntity userEntity = new UserEntity();
-                userEntity.setId(Integer.parseInt(id));
-                userEntity.setUsername(username);
-                userEntity.setMd5password(md5password);
-                userEntity.setNickname(nickname);
-                userEntity.setGender(gender);
-                userEntity.setIconUrl(iconUrl);
-                userEntity.setLatitude(Double.parseDouble(latitude));
-                userEntity.setLongitude(Double.parseDouble(longitude));
-                userEntity.setIntro(intro);
-                userEntity.setRegTime(Double.parseDouble(regTime));
-
-                userEntitys[i] = userEntity;
-
+                userEntitys[i] = setIntoEntity(list.get(i), userEntity);
             }
         } catch (Exception e) {
-            // TODO Auto-generated catch block
             e.printStackTrace();
             Tools.writeException(e);
         }
-
         return userEntitys;
     }
 
+    /**
+     * 分页查询
+     *
+     * @param pageIndex
+     * @param rowNum
+     * @return
+     */
     public UserEntity[] queryUserByPage(int pageIndex, int rowNum) {
         UserEntity[] userEntitys = null;
         try {
@@ -180,71 +175,34 @@ public class UserDAO {
             List list = select.selectRS(sql, pageIndex, rowNum);
             userEntitys = new UserEntity[list.size()];
             for (int i = 0; i < list.size(); i++) {
-                String id = String.valueOf(((Map) list.get(i)).get(col_id));
-                String username = String.valueOf(((Map) list.get(i))
-                        .get(col_username));
-                String md5password = String.valueOf(((Map) list.get(i))
-                        .get(col_md5password));
-                String nickname = String.valueOf(((Map) list.get(i))
-                        .get(col_nickname));
-                String gender = String.valueOf(((Map) list.get(i))
-                        .get(col_gender));
-                String iconUrl = String.valueOf(((Map) list.get(i))
-                        .get(col_iconUrl));
-                String latitude = String.valueOf(((Map) list.get(i))
-                        .get(col_latitude));
-                String longitude = String.valueOf(((Map) list.get(i))
-                        .get(col_longitude));
-                String intro = String.valueOf(((Map) list.get(i))
-                        .get(col_intro));
-                String regTime = String.valueOf(((Map) list.get(i))
-                        .get(col_regTime));
-                if (Tools.isNull(latitude)) {
-                    latitude = "0";
-                }
-                if (Tools.isNull(longitude)) {
-                    longitude = "0";
-                }
-                if (Tools.isNull(regTime)) {
-                    regTime = "0";
-                }
-
                 UserEntity userEntity = new UserEntity();
-                userEntity.setId(Integer.parseInt(id));
-                userEntity.setUsername(username);
-                userEntity.setMd5password(md5password);
-                userEntity.setNickname(nickname);
-                userEntity.setGender(gender);
-                userEntity.setIconUrl(iconUrl);
-                userEntity.setLatitude(Double.parseDouble(latitude));
-                userEntity.setLongitude(Double.parseDouble(longitude));
-                userEntity.setIntro(intro);
-                userEntity.setRegTime(Double.parseDouble(regTime));
-
-                userEntitys[i] = userEntity;
-
+                userEntitys[i] = setIntoEntity(list.get(i), userEntity);
             }
         } catch (Exception e) {
-            // TODO Auto-generated catch block
             e.printStackTrace();
             Tools.writeException(e);
         }
-
         return userEntitys;
     }
 
+    /**
+     * 注册
+     *
+     * @param userEntity
+     * @return
+     */
     public int register(final UserEntity userEntity) {
         int statusCode = Const.STATUS_SERVER_ERROR;
         class SetUsername implements SetParameter {
-            public void set(PreparedStatement preparedStatement)
-                    throws Exception {
+            @Override
+            public void set(PreparedStatement preparedStatement) throws Exception {
                 preparedStatement.setString(1, userEntity.getUsername());
             }
         }
 
         class SetParam implements SetParameter {
-            public void set(PreparedStatement preparedStatement)
-                    throws Exception {
+            @Override
+            public void set(PreparedStatement preparedStatement) throws Exception {
                 preparedStatement.setString(1, userEntity.getUsername());
                 preparedStatement.setString(2, userEntity.getMd5password());
                 preparedStatement.setString(3, userEntity.getNickname());
@@ -254,14 +212,13 @@ public class UserDAO {
                 preparedStatement.setDouble(7, userEntity.getLongitude());
                 preparedStatement.setString(8, userEntity.getIntro());
                 preparedStatement.setDouble(9, userEntity.getRegTime());
-
             }
         }
 
         try {
             String sql = "select * from user where username=?";
-
             Select select = new Select();
+
             List list = select.selectRS(sql, new SetUsername());
 
             if (list.size() >= 1) {
@@ -276,19 +233,15 @@ public class UserDAO {
                     + ") values(?,?,?,?,?,?,?,?,?)";
 
             Modify modify = new Modify();
-
             int id = modify.exec(sql, new SetParam());
             if (id >= 1) {
                 statusCode = Const.STATUS_OK;
             }
-
         } catch (Exception e) {
-            // TODO Auto-generated catch block
             statusCode = Const.STATUS_SERVER_ERROR;
             e.printStackTrace();
             Tools.writeException(e);
         }
-
         return statusCode;
     }
 }

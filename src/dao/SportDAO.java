@@ -1,15 +1,15 @@
 package dao;
 
-import java.sql.PreparedStatement;
-import java.util.*;
-
 import dao.operate.Modify;
 import dao.operate.Select;
 import dao.operate.SetParameter;
 import entity.SportEntity;
-import entity.TopicEntity;
-import entity.UserEntity;
 import util.Tools;
+
+import java.sql.PreparedStatement;
+import java.util.List;
+import java.util.Map;
+import java.util.UUID;
 
 public class SportDAO {
     private final static String table_topic = "sport";
@@ -74,7 +74,6 @@ public class SportDAO {
                         public void set(PreparedStatement preparedStatement) throws Exception {
                             preparedStatement.setString(1, sportEntity.getUsername());
                             preparedStatement.setString(2, uuid);
-
                         }
                     }
                     sql = "select id from sport " + "where " + col_username + "=? and " + col_uuid + "=? ";

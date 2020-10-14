@@ -23,8 +23,6 @@ public class Modify {
      * @return
      */
     public int exec(String sql, SetParameter setParameter) {
-        // System.out.println(sqlStr);
-
         int flag = -2;
         DBConnManager conn = null;
         Connection con = null;
@@ -62,8 +60,6 @@ public class Modify {
      * @return
      */
     public int exec(String sql) {
-        // System.out.println(sqlStr);
-
         int flag = -2;
         DBConnManager conn = null;
         Connection con = null;
@@ -75,7 +71,6 @@ public class Modify {
             int value = stmt.executeUpdate();
             flag = value;
         } catch (Exception ex) {
-            // ex.printStackTrace();
             Tools.writeException(ex);
 
         } finally {
@@ -88,7 +83,6 @@ public class Modify {
                 }
 
             } catch (Exception e) {
-                // e.printStackTrace();
                 Tools.writeException(e);
             }
         }
