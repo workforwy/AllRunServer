@@ -11,6 +11,14 @@ import java.util.*;
 
 public class Tools {
 
+    static Log logger = Log.getInstance();
+
+    /**
+     * Creates a new instance of Tools
+     */
+    public Tools() {
+    }
+
     public static String addZero(String str, int maxLen) {
         String strZero = "";
         int len = str.trim().length();
@@ -39,19 +47,10 @@ public class Tools {
         e.printStackTrace();
         String content = Tools.getExceptionStackTraceString(e);
         Log.getInstance().sysException.info(content);
-
     }
 
     public static void writeLog(String content) {
         Log.getInstance().sysException.info(content);
-    }
-
-    static Log logger = Log.getInstance();
-
-    /**
-     * Creates a new instance of Tools
-     */
-    public Tools() {
     }
 
     public static String StringArrayToString(String[] strs) {
@@ -63,9 +62,7 @@ public class Tools {
             }
         }
         return sb.toString();
-
     }
-
 
     public static void main(String[] args) {
         try {

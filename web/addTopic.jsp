@@ -17,7 +17,6 @@
 
     request.setCharacterEncoding("UTF-8");
     boolean isHasImage = false;
-
     int status = Const.STATUS_OK;
     String msg = Const.STATUS_OK_MSG, iconUrl = "";
 
@@ -76,18 +75,13 @@
                 if ("longitude".equals(fieldName)) {
                     longitude = vlaue;
                 }
-
-
             }
         }
 
         if (status == Const.STATUS_OK) {
-
-
             if (Tools.isNull(latitude)) {
                 latitude = "0.000000";
             }
-
             if (Tools.isNull(longitude)) {
                 longitude = "0.000000";
             }
@@ -109,7 +103,8 @@
             dbet = System.currentTimeMillis();
         }
     } catch (Exception e) {
-        e.printStackTrace();
+        status = Const.STATUS_NO_FILE;
+        msg = Const.STATUS_NO_FILE_MSG;
     } finally {
         if (!isHasImage) {
             status = Const.STATUS_NO_FILE;

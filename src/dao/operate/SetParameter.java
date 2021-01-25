@@ -9,6 +9,6 @@ public interface SetParameter {
      * @param preparedStatement
      * @throws Exception
      */
-    public void set(PreparedStatement preparedStatement) throws Exception;
+     void set(PreparedStatement preparedStatement) throws Exception;
 
 }

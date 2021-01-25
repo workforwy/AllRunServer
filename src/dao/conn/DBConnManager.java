@@ -30,7 +30,7 @@ public class DBConnManager {
 
     public DBConnManager() {
         try {
-            InputStream is = getClass().getResourceAsStream("../db.properties");
+            InputStream is = DBConnManager.class.getClassLoader().getResourceAsStream("db.properties");
             Properties pro = new Properties();
             pro.load(is);
             //添加mysql数据库的连接信息
@@ -48,16 +48,6 @@ public class DBConnManager {
     }
 
     /**
-     * 将连接返回给由指定的连接池
-     */
-    public void releaseConnection(String name, Connection con) {
-        DBConnPool pool = (DBConnPool) connPools.get(name);
-        if (pool != null) {
-            pool.releaseConnection(con);
-        }
-    }
-
-    /**
      * 得到一个指定连接池中的连接
      */
     public Connection getConnection(String name) {
@@ -65,6 +55,16 @@ public class DBConnManager {
         if (pool != null)
             return pool.getConnection();
         return null;
+    }
+
+    /**
+     * 将连接返回给由指定的连接池
+     */
+    public void releaseConnection(String name, Connection con) {
+        DBConnPool pool = (DBConnPool) connPools.get(name);
+        if (pool != null) {
+            pool.releaseConnection(con);
+        }
     }
 
     /**
@@ -110,13 +110,15 @@ public class DBConnManager {
         return pool.getInUse();
     }
 
+    /**
+     * 获取连接实例
+     *
+     * @return
+     */
     public static synchronized DBConnManager getInstance() {
-        //判断本类的静态实例对象是否有值
         if (instance == null) {
-            //没有：生成一个本类的实例
             instance = new DBConnManager();
         }
-        //返回本类的实例对象
         return instance;
     }
 }

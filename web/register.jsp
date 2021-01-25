@@ -17,7 +17,7 @@
     st = System.currentTimeMillis();
     request.setCharacterEncoding("UTF-8");
 
-    int status = Const.STATUS_OK;
+    int status ;
     String msg = Const.STATUS_OK_MSG, iconUrl = "";
     boolean isHasImage = false;
     try {

@@ -6,7 +6,8 @@ import java.sql.*;
 import java.util.*;
 
 /**
- * 连接池类.能够根据要求创建新连接,直到最大连接数为止.
+ * 连接池类
+ * 能够根据要求创建新连接,直到最大连接数为止.
  */
 public class DBConnPool {
     //实际使用中的连接数

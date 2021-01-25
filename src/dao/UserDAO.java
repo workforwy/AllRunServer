@@ -32,7 +32,6 @@ public class UserDAO {
                 public void set(PreparedStatement preparedStatement) throws Exception {
                     preparedStatement.setString(1, username);
                     preparedStatement.setString(2, md5Password);
-
                 }
             }
             String sql = "select * from user " + "where " + col_username + "=? and " + col_md5password + "=? ";
@@ -50,6 +49,11 @@ public class UserDAO {
         return false;
     }
 
+
+    public static void main(String[] args) {
+//        new UserDAO().queryAll();
+        System.out.println(new UserDAO().queryAll());
+    }
     /**
      * 根据姓名和密码查询
      *

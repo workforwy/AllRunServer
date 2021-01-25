@@ -25,36 +25,31 @@
 
         UserDAO userDAO = new UserDAO();
         boolean userIsExist = userDAO.checkUserIsExist(username, md5password);
-        if (!userIsExist) {
-            status = Const.STATUS_LOGIN_ERROR;
-            msg = Const.STATUS_LOGIN_ERROR_MSG;
-        } else {
+        if (userIsExist) {
             SportEntity sportEntity = new SportEntity();
             sportEntity.setUsername(username);
             sportEntity.setSportType(sportType);
             SportDAO sportDAO = new SportDAO();
             int sportId = sportDAO.addSport(sportEntity);
-            try {
-                String[] array = data.split("\\@");
-                TraceDAO traceDAO = new TraceDAO();
-                for (int i = 0; i < array.length; i++) {
-                    String[] trace = array[i].split("\\|");
-                    String sportTime = trace[0];
-                    String latitude = trace[1];
-                    String longitude = trace[2];
+            String[] array = data.split("\\@");
+            TraceDAO traceDAO = new TraceDAO();
+            for (int i = 0; i < array.length; i++) {
+                String[] trace = array[i].split("\\|");
+                String sportTime = trace[0];
+                String latitude = trace[1];
+                String longitude = trace[2];
 
-                    TraceEntity traceEntity = new TraceEntity();
-                    traceEntity.setSportId(sportId);
-                    traceEntity.setSportTime(Double.parseDouble(sportTime));
-                    traceEntity.setLatitude(Double.parseDouble(latitude));
-                    traceEntity.setLongitude(Double.parseDouble(longitude));
+                TraceEntity traceEntity = new TraceEntity();
+                traceEntity.setSportId(sportId);
+                traceEntity.setSportTime(Double.parseDouble(sportTime));
+                traceEntity.setLatitude(Double.parseDouble(latitude));
+                traceEntity.setLongitude(Double.parseDouble(longitude));
 
-                    traceDAO.addTrace(traceEntity, sportId);
-                }
-            } catch (Exception e) {
-                status = Const.STATUS_SERVER_ERROR;
-                msg = Const.STATUS_SERVER_ERROR_MSG;
+                traceDAO.addTrace(traceEntity, sportId);
             }
+        } else {
+            status = Const.STATUS_LOGIN_ERROR;
+            msg = Const.STATUS_LOGIN_ERROR_MSG;
         }
     } catch (Exception e) {//myPic = null;
         status = Const.STATUS_SERVER_ERROR;

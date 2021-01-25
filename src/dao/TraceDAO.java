@@ -29,8 +29,11 @@ public class TraceDAO {
                     preparedStatement.setInt(1, sportId);
                 }
             }
-            String sql = "select " + col_id + ","
-                    + col_sportTime + "," + col_latitude + "," + col_longitude
+            String sql = "select "
+                    + col_id + ","
+                    + col_sportTime + ","
+                    + col_latitude + ","
+                    + col_longitude
                     + " from trace where " + col_sportId + "=? order by id asc";
 
             Select select = new Select();
@@ -38,9 +41,9 @@ public class TraceDAO {
             traceEntities = new TraceEntity[list.size()];
             for (int i = 0; i < list.size(); i++) {
                 String id = String.valueOf(((Map) list.get(i)).get(col_id));
-                String sportTime = String.valueOf(((Map) list.get(i)) .get(col_sportTime));
-                String latitude = String.valueOf(((Map) list.get(i)) .get(col_latitude));
-                String longitude = String.valueOf(((Map) list.get(i)) .get(col_longitude));
+                String sportTime = String.valueOf(((Map) list.get(i)).get(col_sportTime));
+                String latitude = String.valueOf(((Map) list.get(i)).get(col_latitude));
+                String longitude = String.valueOf(((Map) list.get(i)).get(col_longitude));
 
                 TraceEntity traceEntity = new TraceEntity();
                 traceEntity.setId(Integer.parseInt(id));

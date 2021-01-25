@@ -9,17 +9,18 @@ import javax.servlet.UnavailableException;
 public class SetCharacterEncodingFilter implements Filter {
     protected String encoding = null;
     protected FilterConfig filterConfig = null;
-    protected boolean ignore = true;
+    protected boolean ignore = false;
 
     @Override
-    public void destroy() {
-        this.encoding = null;
-        this.filterConfig = null;
+    public void init(FilterConfig filterConfig) throws ServletException {
+        this.filterConfig = filterConfig;
+        this.encoding = filterConfig.getInitParameter("encoding");
+        String value = filterConfig.getInitParameter("ignore");
+        this.ignore = value == null || value.equalsIgnoreCase("true") || value.equalsIgnoreCase("yes");
     }
 
     @Override
-    public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
-            throws IOException, ServletException {
+    public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
         if (ignore || (request.getCharacterEncoding() == null)) {
             String encoding = selectEncoding(request);
             if (encoding != null)
@@ -29,23 +30,12 @@ public class SetCharacterEncodingFilter implements Filter {
     }
 
     @Override
-    public void init(FilterConfig filterConfig) throws ServletException {
-
-        this.filterConfig = filterConfig;
-        this.encoding = filterConfig.getInitParameter("encoding");
-        String value = filterConfig.getInitParameter("ignore");
-        if (value == null)
-            this.ignore = true;
-        else if (value.equalsIgnoreCase("true"))
-            this.ignore = true;
-        else if (value.equalsIgnoreCase("yes"))
-            this.ignore = true;
-        else
-            this.ignore = false;
-
+    public void destroy() {
+        this.encoding = null;
+        this.filterConfig = null;
     }
 
     protected String selectEncoding(ServletRequest request) {
-        return (this.encoding);
+        return this.encoding;
     }
 }
