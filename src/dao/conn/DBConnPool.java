@@ -46,6 +46,9 @@ public class DBConnPool {
         //连接数减一
         inUse--;
     }
+    
+
+
 
     /**
      * 从连接池得到一个连接

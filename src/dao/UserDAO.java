@@ -78,6 +78,9 @@ public class UserDAO {
 
         private String username, md5Password;
 
+
+
+
         public SetParam(String username, String md5Password) {
             this.username = username;
             this.md5Password = md5Password;

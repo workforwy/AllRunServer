@@ -20,6 +20,9 @@ public class TraceDAO {
     private final static String col_latitude = "latitude";
     private final static String col_longitude = "longitude";
 
+
+
+
     public TraceEntity[] queryBySportId(final int sportId) {
         TraceEntity[] traceEntities = null;
         try {

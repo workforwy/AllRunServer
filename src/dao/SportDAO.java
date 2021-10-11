@@ -19,6 +19,9 @@ public class SportDAO {
     private final static String col_username = "username";
     private final static String col_uuid = "uuid";
 
+
+
+
     public SportEntity[] queryNearby(final double latitude, final double longitude) {
         SportEntity[] sportEntitys = null;
         try {
