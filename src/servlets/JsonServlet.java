@@ -20,17 +20,17 @@ public class JsonServlet extends HttpServlet {
 
     @Override
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        PrintWriter out = response.getWriter();
-        String word = request.getParameter("word");
-        String jsonString = "";
-        if ("good".equals(word)) {
-            jsonString = "{'mp3url':'1.mp3','acceptation':'ºÃ'}";
-        } else {
-            jsonString = "{'mp3url':'2.mp3','acceptation':'¸üºÃ'}";
-        }
+//         PrintWriter out = response.getWriter();
+//         String word = request.getParameter("word");
+//         String jsonString = "";
+//         if ("good".equals(word)) {
+//             jsonString = "{'mp3url':'1.mp3','acceptation':'ÂºÃƒ'}";
+//         } else {
+//             jsonString = "{'mp3url':'2.mp3','acceptation':'Â¸Ã¼ÂºÃƒ'}";
+//         }
 
-        out.write(jsonString);
-        out.println();
+//         out.write(jsonString);
+//         out.println();
     }
 
     @Override
