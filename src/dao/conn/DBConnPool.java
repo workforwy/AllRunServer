@@ -1,7 +1,5 @@
 package dao.conn;
 
-import util.Log;
-
 import java.sql.*;
 import java.util.*;
 
@@ -46,7 +44,7 @@ public class DBConnPool {
         //连接数减一
         inUse--;
     }
-    
+
 
 
 

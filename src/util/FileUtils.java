@@ -7,15 +7,15 @@ import java.util.StringTokenizer;
 /**
  * @author wangyong
  */
-public class FileOperate {
+public class FileUtils {
     private String message;
-    Log logger = Log.getInstance();
+    LogUtils logger = LogUtils.getInstance();
 
-    public FileOperate() {
+    public FileUtils() {
     }
 
     public static void main(String[] args) {
-        FileOperate op = new FileOperate();
+        FileUtils op = new FileUtils();
         String content = "中国防大学修改";
         // content=Tools.viewToUTF8(content);
         try {
@@ -26,7 +26,7 @@ public class FileOperate {
 //		Vector fileNames = ZipUtils.unZip(zipPath, ChapterDir);
 //   		String file="c:\\1";
 //
-//   		FileOperate o=new FileOperate();
+//   		FileUtils o=new FileUtils();
 //   		//o.delFile(file);
 //   		o.delFolder(file);
 //   		System.out.println("ok");
@@ -35,7 +35,7 @@ public class FileOperate {
             //String file="D:\\JBossWeb\\webapps\\wwwMobiBobCom\\upLoadComicData\\75\\9";
             //String file="c:\\12.zip";//能删除
             String file = "D:\\JBossWeb\\webapps\\wwwMobiBobCom\\upLoadComicData\\75\\16\\12.zip";//能删除
-            FileOperate o = new FileOperate();
+            FileUtils o = new FileUtils();
             //o.delFile(file);
             o.delFolder(file);
             System.out.println("ok");

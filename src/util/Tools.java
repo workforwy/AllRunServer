@@ -11,7 +11,7 @@ import java.util.*;
 
 public class Tools {
 
-    static Log logger = Log.getInstance();
+    static LogUtils logger = LogUtils.getInstance();
 
     /**
      * Creates a new instance of Tools
@@ -46,11 +46,11 @@ public class Tools {
     public static void writeException(Exception e) {
         e.printStackTrace();
         String content = Tools.getExceptionStackTraceString(e);
-        Log.getInstance().sysException.info(content);
+        LogUtils.getInstance().sysException.info(content);
     }
 
     public static void writeLog(String content) {
-        Log.getInstance().sysException.info(content);
+        LogUtils.getInstance().sysException.info(content);
     }
 
     public static String StringArrayToString(String[] strs) {

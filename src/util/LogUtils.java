@@ -4,18 +4,18 @@ import org.apache.log4j.PropertyConfigurator;
 
 import java.util.logging.Logger;
 
-public class Log {
+public class LogUtils {
 
-    private static Log singleton = null;
+    private static LogUtils singleton = null;
 
     public Logger sysException;
 
     public int i = 0;
 
-    private Log() {
+    private LogUtils() {
         sysException = null;
         //使用相对路径
-        String path = (Log.class.getClassLoader().getResource("")).toString();
+        String path = (LogUtils.class.getClassLoader().getResource("")).toString();
         System.out.println(path);
 
         //去掉  file:/
@@ -27,7 +27,7 @@ public class Log {
         sysException = Logger.getLogger("sysException");
     }
 
-    public static Log getInstance() {
+    public static LogUtils getInstance() {
         try {
             init();
         } catch (Exception e) {
@@ -37,11 +37,11 @@ public class Log {
     }
 
     static void init() throws Exception {
-        singleton = new Log();
+        singleton = new LogUtils();
     }
 
     public static void main(String[] args) {
-        Log logger = Log.getInstance();
+        LogUtils logger = LogUtils.getInstance();
         if (logger != null) {
             logger.sysException.info("wap6");
         }

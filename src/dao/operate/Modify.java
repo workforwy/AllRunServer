@@ -1,7 +1,7 @@
 package dao.operate;
 
 import dao.conn.DBConnManager;
-import util.Log;
+import util.LogUtils;
 import util.Tools;
 
 import java.sql.*;
@@ -13,7 +13,7 @@ import java.sql.*;
  * @author smlzhang
  */
 public class Modify {
-    Log logger = Log.getInstance();
+    LogUtils logger = LogUtils.getInstance();
 
     /**
      * 可以用?,防止Sql注入,在mysql中列名不能有?

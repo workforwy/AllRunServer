@@ -3,7 +3,7 @@ package util;
 /**
  * @author wangyong
  */
-public class Config {
+public class ConfigUtils {
 
     public static final String allClassFolder = "";
 
@@ -18,7 +18,7 @@ public class Config {
     public static final String comicImageDir = "upLoadComicData";
 
     static {
-        siteRoot = (Log.class.getClassLoader().getResource("")).toString();
+        siteRoot = (LogUtils.class.getClassLoader().getResource("")).toString();
         System.out.println(siteRoot);
 
         //È¥µôfile:/
