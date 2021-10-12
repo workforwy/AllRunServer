@@ -19,9 +19,6 @@ public class SportDAO {
     private final static String col_username = "username";
     private final static String col_uuid = "uuid";
 
-
-
-
     public SportEntity[] queryNearby(final double latitude, final double longitude) {
         SportEntity[] sportEntitys = null;
         try {
@@ -52,7 +49,7 @@ public class SportDAO {
 
     /**
      * @param sportEntity
-     * @return Ö÷¼ü -1±íÊ¾Ê§°Ü
+     * @return ï¿½ï¿½ï¿½ï¿½ -1ï¿½ï¿½Ê¾Ê§ï¿½ï¿½
      */
     public int addSport(final SportEntity sportEntity) {
         int sportId = -1;

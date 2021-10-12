@@ -31,8 +31,11 @@ public class Tools {
 
     public static String addZero(int str, int maxLen) {
         return Tools.addZero(String.valueOf(str), maxLen);
-
     }
+
+
+
+
 
     public static String getExceptionStackTraceString(Exception e) {
         String errorInfo = "";
@@ -82,7 +85,7 @@ public class Tools {
     }
 
     /**
-     * ¸ù¾Ý¸ø¶¨µÄÄêÔÂ£¬µÃµ½×îºóÒ»Ìì
+     * ï¿½ï¿½ï¿½Ý¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Â£ï¿½ï¿½Ãµï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½
      *
      * @param year
      * @param month
@@ -99,7 +102,7 @@ public class Tools {
     }
 
     /**
-     * ¸ù¾Ý¸ø¶¨µÄÄêÔÂ£¬µÃµ½×îºóÒ»Ìì
+     * ï¿½ï¿½ï¿½Ý¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Â£ï¿½ï¿½Ãµï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½
      *
      * @param year
      * @param month
@@ -122,7 +125,7 @@ public class Tools {
     }
 
     /*
-     * ·µ»ØÒ»¸öÈÕÆÚÐòÁÐÈç2006-08-22 3·µ»ØµÄÊÇ 2006-08-20 2006-08-21 2006-08-22
+     * ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½2006-08-22 3ï¿½ï¿½ï¿½Øµï¿½ï¿½ï¿½ 2006-08-20 2006-08-21 2006-08-22
      */
     public static List getMonthAllDay(int year, int month) {
         List list = new ArrayList();
@@ -164,7 +167,7 @@ public class Tools {
     }
 
     /**
-     * ·µ»ØÒ»¸öÈÕÆÚÁÐ±íÈç2008-06-04 2008-06-05 2008-06-06
+     * ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð±ï¿½ï¿½ï¿½2008-06-04 2008-06-05 2008-06-06
      *
      * @param startDateStr
      * @param days
@@ -192,7 +195,7 @@ public class Tools {
     }
 
     /**
-     * µÃµ½ÑéÖ¤Âë
+     * ï¿½Ãµï¿½ï¿½ï¿½Ö¤ï¿½ï¿½
      *
      * @param request
      */
@@ -215,11 +218,11 @@ public class Tools {
     }
 
     /**
-     * ½âÂëurlÖÐÌØÊâ×Ö·û
+     * ï¿½ï¿½ï¿½ï¿½urlï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö·ï¿½
      *
      * @param strUrl
-     * @return # ÓÃÀ´±êÖ¾ÌØ¶¨µÄÎÄµµÎ»ÖÃ %23 % ¶ÔÌØÊâ×Ö·û½øÐÐ±àÂë %25 & ·Ö¸ô²»Í¬µÄ±äÁ¿Öµ¶Ô %26 + ÔÚ±äÁ¿ÖµÖÐ±íÊ¾¿Õ¸ñ %2B
-     * \ ±íÊ¾Ä¿Â¼Â·¾¶ %2F = ÓÃÀ´Á¬½Ó¼üºÍÖµ %3D ? ±íÊ¾²éÑ¯×Ö·û´®µÄ¿ªÊ¼ %3F
+     * @return # ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö¾ï¿½Ø¶ï¿½ï¿½ï¿½ï¿½Äµï¿½Î»ï¿½ï¿½ %23 % ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö·ï¿½ï¿½ï¿½ï¿½Ð±ï¿½ï¿½ï¿½ %25 & ï¿½Ö¸ï¿½ï¿½ï¿½Í¬ï¿½Ä±ï¿½ï¿½ï¿½Öµï¿½ï¿½ %26 + ï¿½Ú±ï¿½ï¿½ï¿½Öµï¿½Ð±ï¿½Ê¾ï¿½Õ¸ï¿½ %2B
+     * \ ï¿½ï¿½Ê¾Ä¿Â¼Â·ï¿½ï¿½ %2F = ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ó¼ï¿½ï¿½ï¿½Öµ %3D ? ï¿½ï¿½Ê¾ï¿½ï¿½Ñ¯ï¿½Ö·ï¿½ï¿½ï¿½ï¿½Ä¿ï¿½Ê¼ %3F
      */
     public static String decodeUrl(String strUrl) {
         String strRt = "";
@@ -237,11 +240,11 @@ public class Tools {
     }
 
     /**
-     * ½âÂëurlÖÐÌØÊâ×Ö·û
+     * ï¿½ï¿½ï¿½ï¿½urlï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö·ï¿½
      *
      * @param strUrl
-     * @return # ÓÃÀ´±êÖ¾ÌØ¶¨µÄÎÄµµÎ»ÖÃ %23 % ¶ÔÌØÊâ×Ö·û½øÐÐ±àÂë %25 & ·Ö¸ô²»Í¬µÄ±äÁ¿Öµ¶Ô %26 + ÔÚ±äÁ¿ÖµÖÐ±íÊ¾¿Õ¸ñ %2B
-     * \ ±íÊ¾Ä¿Â¼Â·¾¶ %2F = ÓÃÀ´Á¬½Ó¼üºÍÖµ %3D ? ±íÊ¾²éÑ¯×Ö·û´®µÄ¿ªÊ¼ %3F
+     * @return # ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö¾ï¿½Ø¶ï¿½ï¿½ï¿½ï¿½Äµï¿½Î»ï¿½ï¿½ %23 % ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö·ï¿½ï¿½ï¿½ï¿½Ð±ï¿½ï¿½ï¿½ %25 & ï¿½Ö¸ï¿½ï¿½ï¿½Í¬ï¿½Ä±ï¿½ï¿½ï¿½Öµï¿½ï¿½ %26 + ï¿½Ú±ï¿½ï¿½ï¿½Öµï¿½Ð±ï¿½Ê¾ï¿½Õ¸ï¿½ %2B
+     * \ ï¿½ï¿½Ê¾Ä¿Â¼Â·ï¿½ï¿½ %2F = ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ó¼ï¿½ï¿½ï¿½Öµ %3D ? ï¿½ï¿½Ê¾ï¿½ï¿½Ñ¯ï¿½Ö·ï¿½ï¿½ï¿½ï¿½Ä¿ï¿½Ê¼ %3F
      */
     public static String decodeUrlPush(String strUrl) {
         String strRt = "";
@@ -261,10 +264,10 @@ public class Tools {
     }
 
     /**
-     * ¼ì²é×Ö·û´®ÊÇ²»ÊÇÊý×Ö
+     * ï¿½ï¿½ï¿½ï¿½Ö·ï¿½ï¿½ï¿½ï¿½Ç²ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
      *
      * @param strValue
-     * @return true ÊÇÊý×Ö false ²»ÊÇÊý×Ö
+     * @return true ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ false ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
      */
     public static boolean isNum(String strValue) {
         if (strValue == null || "".equals(strValue))
@@ -280,8 +283,8 @@ public class Tools {
     }
 
     /**
-     * ½«ÎÄ±¾ÖÐµÄ<br/>
-     * ×ª»»³É'\n' &nbsp;×ª»»³É' ' ,ÒÔ±ãÔÚ¶àÐÐÎÄ±¾¿òÖÐÏÔÊ¾
+     * ï¿½ï¿½ï¿½Ä±ï¿½ï¿½Ðµï¿½<br/>
+     * ×ªï¿½ï¿½ï¿½ï¿½'\n' &nbsp;×ªï¿½ï¿½ï¿½ï¿½' ' ,ï¿½Ô±ï¿½ï¿½Ú¶ï¿½ï¿½ï¿½ï¿½Ä±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê¾
      *
      * @param s String
      * @return String
@@ -311,7 +314,7 @@ public class Tools {
     }
 
     /**
-     * ½«¶àÐÐÎÄ±¾¿òÖÐµÄ¿Õ¸ñ£¬»»ÐÐ·û×ª»»³ÉwmlÖÐµÄ&nbsp,<br/>
+     * ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä±ï¿½ï¿½ï¿½ï¿½ÐµÄ¿Õ¸ñ£¬»ï¿½ï¿½Ð·ï¿½×ªï¿½ï¿½ï¿½ï¿½wmlï¿½Ðµï¿½&nbsp,<br/>
      *
      * @param s
      * @return
@@ -336,10 +339,10 @@ public class Tools {
     }
 
     /**
-     * ·µ»ØÒ»¸ö×Ó´®
+     * ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½Ó´ï¿½
      *
-     * @param s      Ô­ÏÈµÄ×Ö·û´®
-     * @param length ³¤¶È
+     * @param s      Ô­ï¿½Èµï¿½ï¿½Ö·ï¿½ï¿½ï¿½
+     * @param length ï¿½ï¿½ï¿½ï¿½
      * @return
      */
     public static String subString(String s, int length) {
@@ -358,7 +361,7 @@ public class Tools {
     }
 
     /*
-     * ´¦Àísql×Ö·û´®½«'Ìæ»»³É''
+     * ï¿½ï¿½ï¿½ï¿½sqlï¿½Ö·ï¿½ï¿½ï¿½ï¿½ï¿½'ï¿½æ»»ï¿½ï¿½''
      */
     public static String processSqlString(String sql) {
         String r = "";
@@ -366,11 +369,11 @@ public class Tools {
             return null;
         }
 
-        // sqlÖÐ'ÒÑ±»Ìæ»»³É'',²»×ö´¦Àí
+        // sqlï¿½ï¿½'ï¿½Ñ±ï¿½ï¿½æ»»ï¿½ï¿½'',ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
         if (sql.indexOf("''") >= 1) {
             r = sql;
         } else {
-            // ½«'Ìæ»»³É''
+            // ï¿½ï¿½'ï¿½æ»»ï¿½ï¿½''
             r = Tools.replaceString(sql, "'", "''");
         }
         return r;
@@ -378,11 +381,11 @@ public class Tools {
     }
 
     /**
-     * Ìæ»»×Ö·û´®
+     * ï¿½æ»»ï¿½Ö·ï¿½ï¿½ï¿½
      *
-     * @param originalString Õû¸ö×Ö·û´®
-     * @param srcString      Òª±»Ìæ»»µôµÄ×Ö·û´®
-     * @param destString     ÐÂ×Ö·û´®
+     * @param originalString ï¿½ï¿½ï¿½ï¿½ï¿½Ö·ï¿½ï¿½ï¿½
+     * @param srcString      Òªï¿½ï¿½ï¿½æ»»ï¿½ï¿½ï¿½ï¿½ï¿½Ö·ï¿½ï¿½ï¿½
+     * @param destString     ï¿½ï¿½ï¿½Ö·ï¿½ï¿½ï¿½
      * @return
      */
     public static String replaceString(String originalString, String srcString,
@@ -404,7 +407,7 @@ public class Tools {
     }
 
     /**
-     * ·µ»ØÒ»¸öÊý×é´æ·Å²éÑ¯Ò³ÃæÖÐÈÕÆÚµÄÆðÊ¼Öµ
+     * ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Å²ï¿½Ñ¯Ò³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Úµï¿½ï¿½ï¿½Ê¼Öµ
      */
     public static int[] getDefaultStartDate() {
         Calendar cal = Calendar.getInstance();
@@ -426,7 +429,7 @@ public class Tools {
     }
 
     /**
-     * ·µ»ØÄêÔÂÈÕyyyyMMdd
+     * ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½yyyyMMdd
      *
      * @return
      */
@@ -441,7 +444,7 @@ public class Tools {
     }
 
     /**
-     * ·µ»Øµ±Ç°ÈÕÆÚÈçyyyy-MM-dd
+     * ï¿½ï¿½ï¿½Øµï¿½Ç°ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½yyyy-MM-dd
      *
      * @return
      */
@@ -455,7 +458,7 @@ public class Tools {
     }
 
     /**
-     * ·µ»Øµ±Ç°ÈÕÆÚÓÃÊý×é´æ·Å
+     * ï¿½ï¿½ï¿½Øµï¿½Ç°ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
      *
      * @return
      */
@@ -474,7 +477,7 @@ public class Tools {
     }
 
     /**
-     * ·µ»Ø×òÌìÈÕÆÚÈçyyyy-MM-dd
+     * ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½yyyy-MM-dd
      *
      * @return
      */
@@ -500,7 +503,7 @@ public class Tools {
     }
 
     /*
-     * ·µ»ØÒ»¸öÈÕÆÚÐòÁÐÈç2006-08-22 3·µ»ØµÄÊÇ 2006-08-20 2006-08-21 2006-08-22
+     * ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½2006-08-22 3ï¿½ï¿½ï¿½Øµï¿½ï¿½ï¿½ 2006-08-20 2006-08-21 2006-08-22
      */
     public static List getSeqDay(String date, int counter) {
         List list = new ArrayList();
@@ -543,7 +546,7 @@ public class Tools {
     }
 
     /**
-     * ·µ»Ø×òÌìÈÕÆÚÓÃÊý×é´æ·Å
+     * ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
      *
      * @return
      */
@@ -569,7 +572,7 @@ public class Tools {
     }
 
     /**
-     * ·µ»ØÒ»¸öÊý×é´æ·Å²éÑ¯Ò³ÃæÖÐÈÕÆÚµÄ½áÊø
+     * ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Å²ï¿½Ñ¯Ò³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ÚµÄ½ï¿½ï¿½ï¿½
      */
     public static int[] getDefaultEndDate() {
         Date d = new Date();
@@ -583,7 +586,7 @@ public class Tools {
         return s;
     }
 
-    // ÓÃÓÚÔÚwapÒ³ÃæÖÐÊä³öºº×Ö
+    // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½wapÒ³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
     public static String viewToUTF8(String s) {
         String s1 = s;
         try {
@@ -742,7 +745,7 @@ public class Tools {
     }
 
     /**
-     * ½«urlÖÐµÄ&Ìæ»»³É&amp;
+     * ï¿½ï¿½urlï¿½Ðµï¿½&ï¿½æ»»ï¿½ï¿½&amp;
      *
      * @param strUrl
      * @return

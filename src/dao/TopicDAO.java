@@ -23,8 +23,6 @@ public class TopicDAO {
     private final static String col_createTime = "createTime";
 
 
-
-
     public TopicEntity[] queryAll() {
         TopicEntity[] topicEntitys = null;
         try {
