@@ -10,6 +10,9 @@ import dao.operate.SetParameter;
 import entity.UserEntity;
 import util.*;
 
+/**
+ * @author wangyong
+ */
 public class UserDAO {
     private final static String table_user = "user";
 
@@ -51,11 +54,11 @@ public class UserDAO {
 
 
     public static void main(String[] args) {
-//        new UserDAO().queryAll();
         System.out.println(new UserDAO().queryAll());
     }
+
     /**
-     * ¸ù¾İĞÕÃûºÍÃÜÂë²éÑ¯
+     * æ ¹æ®å§“åå’Œå¯†ç æŸ¥è¯¢
      *
      * @param username
      * @param md5Password
@@ -77,8 +80,6 @@ public class UserDAO {
     static class SetParam implements SetParameter {
 
         private String username, md5Password;
-
-
 
 
         public SetParam(String username, String md5Password) {
@@ -133,7 +134,7 @@ public class UserDAO {
     }
 
     /**
-     * ²éÑ¯È«²¿Êı¾İ
+     * æŸ¥è¯¢å…¨éƒ¨æ•°æ®
      *
      * @return
      */
@@ -162,7 +163,7 @@ public class UserDAO {
     }
 
     /**
-     * ·ÖÒ³²éÑ¯
+     * åˆ†é¡µæŸ¥è¯¢
      *
      * @param pageIndex
      * @param rowNum
@@ -193,7 +194,7 @@ public class UserDAO {
     }
 
     /**
-     * ×¢²á
+     * æ³¨å†Œ
      *
      * @param userEntity
      * @return
