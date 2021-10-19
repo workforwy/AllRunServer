@@ -16,7 +16,7 @@ public class Modify {
     LogUtils logger = LogUtils.getInstance();
 
     /**
-     * ¿ÉÒÔÓÃ?,·ÀÖ¹Sql×¢Èë,ÔÚmysqlÖĞÁĞÃû²»ÄÜÓĞ?
+     * å¯ä»¥ç”¨?,é˜²æ­¢Sqlæ³¨å…¥,åœ¨mysqlä¸­åˆ—åä¸èƒ½æœ‰?
      *
      * @param sql
      * @param setParameter
@@ -54,7 +54,7 @@ public class Modify {
     }
 
     /**
-     * sqlÖĞÃ»ÓĞÓÃ»§ÊäÈëµÄÄÚÈİ£¬²»ĞèÒªÓÃµ½?
+     * sqlä¸­æ²¡æœ‰ç”¨æˆ·è¾“å…¥çš„å†…å®¹ï¼Œä¸éœ€è¦ç”¨åˆ°?
      *
      * @param sql
      * @return

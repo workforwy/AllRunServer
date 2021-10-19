@@ -15,13 +15,13 @@ import javax.servlet.http.HttpServletRequest;
 //import com.raymobile.wap.common.Tools;
 
 /**
- * web ÉÏµÄ·ÖÒ³
+ * web ä¸Šçš„åˆ†é¡µ
  */
 public class PaginationWeb {
     private String sql;
-    private int intPageSize; // Ã¿Ò³ĞĞÊı
+    private int intPageSize; // æ¯é¡µè¡Œæ•°
     private int intRowCount;
-    private int intPage; // Ò³ºÅ
+    private int intPage; // é¡µå·
     private String Counter;
 
     public PaginationWeb() {
@@ -30,8 +30,8 @@ public class PaginationWeb {
 
     /**
      * @param sql
-     * @param pageIndex µÚ¼¸Ò³,µÚ1Ò³´Ó1¿ªÊ¼
-     * @param rownum    Ã¿Ò³ÓĞ¼¸ĞĞ
+     * @param pageIndex ç¬¬å‡ é¡µ,ç¬¬1é¡µä»1å¼€å§‹
+     * @param rownum    æ¯é¡µæœ‰å‡ è¡Œ
      * @return
      */
     public List selectRS(String sql, int pageIndex, int rownum) {

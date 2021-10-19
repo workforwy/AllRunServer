@@ -4,7 +4,7 @@ import java.sql.PreparedStatement;
 
 public interface SetParameter {
     /**
-     * ·â×° preparedStatement ²éÑ¯Óï¾ä
+     * å°è£… preparedStatement æŸ¥è¯¢è¯­å¥
      *
      * @param preparedStatement
      * @throws Exception

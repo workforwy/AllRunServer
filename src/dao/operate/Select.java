@@ -7,7 +7,7 @@ import java.sql.*;
 import java.util.*;
 
 /**
- * ¶ÁÊı¾İ¿â,½ÓÊÜselect
+ * è¯»æ•°æ®åº“,æ¥å—select
  * @author wangyong
  */
 public class Select {
@@ -118,7 +118,7 @@ public class Select {
     public String subURL(String url, String str) {
         String link = "";
         try {
-            String point = "¡¢";
+            String point = "ã€";
             String[] name = new String[(str.split(point)).length];
             name = str.split(point);
             for (int i = 0; i < name.length; i++) {
