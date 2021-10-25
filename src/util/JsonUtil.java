@@ -30,11 +30,11 @@ public class JsonUtil {
     }
 
     public static void main(String[] args) {
-        String path = JsonUtil.class.getClassLoader().getResource("../data.json").getPath();
+        String path = JsonUtil.class.getClassLoader().getResource("./data.json").getPath();
         String s = readJsonFile(path);
         JSONObject jobj = JSON.parseObject(s);
         //构建JSONArray数组
-        JSONArray movies = jobj.getJSONArray("RECORDS");
+        JSONArray movies = jobj.getJSONArray("data");
         for (int i = 0; i < movies.size(); i++) {
             JSONObject key = (JSONObject) movies.get(i);
             String name = (String) key.get("name");
