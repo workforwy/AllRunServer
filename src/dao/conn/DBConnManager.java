@@ -8,22 +8,22 @@ import java.util.Properties;
 import java.util.Vector;
 
 /**
- * Á¬½Ó³Ø¹ÜÀíÀà,¿ÉÒÔ¹ÜÀí¶à¸öÊı¾İ¿âÁ¬½Ó³Ø
+ * è¿æ¥æ± ç®¡ç†ç±»,å¯ä»¥ç®¡ç†å¤šä¸ªæ•°æ®åº“è¿æ¥æ± 
  */
 public class DBConnManager {
-    //Á¬½Ó³ØÃûÁĞ±í
+    //è¿æ¥æ± ååˆ—è¡¨
     private Vector poolnames = new Vector();
-    //Çı¶¯³ÌĞòÃûÁĞ±í
+    //é©±åŠ¨ç¨‹åºååˆ—è¡¨
     private Vector drivernames = new Vector();
-    //Êı¾İ¿â±êÊ¶ÁĞ±í
+    //æ•°æ®åº“æ ‡è¯†åˆ—è¡¨
     private Vector dbids = new Vector();
-    //ÓÃ»§ÃûÁĞ±í
+    //ç”¨æˆ·ååˆ—è¡¨
     private Vector usernames = new Vector();
-    //ÃÜÂëÁĞ±í
+    //å¯†ç åˆ—è¡¨
     private Vector passwds = new Vector();
-    //×î´óÁ¬½ÓÊıÁĞ±í
+    //æœ€å¤§è¿æ¥æ•°åˆ—è¡¨
     private Vector maxconns = new Vector();
-    //Á¬½Ó³Ø¶ÓÁĞ
+    //è¿æ¥æ± é˜Ÿåˆ—
     private static Hashtable connPools = new Hashtable();
 
     static DBConnManager instance;
@@ -33,7 +33,7 @@ public class DBConnManager {
             InputStream is = DBConnManager.class.getClassLoader().getResourceAsStream("db.properties");
             Properties pro = new Properties();
             pro.load(is);
-            //Ìí¼ÓmysqlÊı¾İ¿âµÄÁ¬½ÓĞÅÏ¢
+            //æ·»åŠ mysqlæ•°æ®åº“çš„è¿æ¥ä¿¡æ¯
             poolnames.addElement("mssql");
             drivernames.addElement(pro.getProperty("drivers"));
             dbids.addElement(pro.getProperty("dbids"));
@@ -43,12 +43,12 @@ public class DBConnManager {
         } catch (Exception e) {
             System.out.print(e);
         }
-        //´´½¨Á¬½Ó³Ø
+        //åˆ›å»ºè¿æ¥æ± 
         createPools();
     }
 
     /**
-     * µÃµ½Ò»¸öÖ¸¶¨Á¬½Ó³ØÖĞµÄÁ¬½Ó
+     * å¾—åˆ°ä¸€ä¸ªæŒ‡å®šè¿æ¥æ± ä¸­çš„è¿æ¥
      */
     public Connection getConnection(String name) {
         DBConnPool pool = (DBConnPool) connPools.get(name);
@@ -58,7 +58,7 @@ public class DBConnManager {
     }
 
     /**
-     * ½«Á¬½Ó·µ»Ø¸øÓÉÖ¸¶¨µÄÁ¬½Ó³Ø
+     * å°†è¿æ¥è¿”å›ç»™ç”±æŒ‡å®šçš„è¿æ¥æ± 
      */
     public void releaseConnection(String name, Connection con) {
         DBConnPool pool = (DBConnPool) connPools.get(name);
@@ -68,7 +68,7 @@ public class DBConnManager {
     }
 
     /**
-     * ¹Ø±ÕËùÓĞÁ¬½Ó
+     * å…³é—­æ‰€æœ‰è¿æ¥
      */
     public synchronized void closeConns() {
         Enumeration allPools = connPools.elements();
@@ -79,7 +79,7 @@ public class DBConnManager {
     }
 
     /**
-     * ´´½¨Á¬½Ó³Ø
+     * åˆ›å»ºè¿æ¥æ± 
      */
     private void createPools() {
         for (int i = 0; i < poolnames.size(); i++) {
@@ -100,7 +100,7 @@ public class DBConnManager {
     }
 
     /**
-     * »ñÈ¡¿ÉÓÃ×î´óÁ¬½ÓÊı
+     * è·å–å¯ç”¨æœ€å¤§è¿æ¥æ•°
      *
      * @param name
      * @return
@@ -111,7 +111,7 @@ public class DBConnManager {
     }
 
     /**
-     * »ñÈ¡Á¬½ÓÊµÀı
+     * è·å–è¿æ¥å®ä¾‹
      *
      * @return
      */

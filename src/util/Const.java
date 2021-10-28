@@ -3,24 +3,24 @@ package util;
 public class Const {
 
     public static final int STATUS_OK = 0;
-    public static final String STATUS_OK_MSG = "³É¹¦";
+    public static final String STATUS_OK_MSG = "æˆåŠŸ";
 
     public static final int STATUS_FAILURE = 1;
 
     public static final int STATUS_SERVER_ERROR = 101;
-    public static final String STATUS_SERVER_ERROR_MSG = "·şÎñÆ÷´úÂëÖ´ĞĞ³ö´í";
+    public static final String STATUS_SERVER_ERROR_MSG = "æœåŠ¡å™¨ä»£ç æ‰§è¡Œå‡ºé”™";
 
     public static final int STATUS_LOGIN_ERROR = 102;
-    public static final String STATUS_LOGIN_ERROR_MSG = "ÕË»§µÇÂ¼²»³É¹¦£¬ÕËºÅ»òÕßÃÜÂë´íÎó£¡";
+    public static final String STATUS_LOGIN_ERROR_MSG = "è´¦æˆ·ç™»å½•ä¸æˆåŠŸï¼Œè´¦å·æˆ–è€…å¯†ç é”™è¯¯ï¼";
 
     public static final int STATUS_REGISTER_ERROR = 201;
-    public static final String STATUS_REGISTER_ERROR_MSG = "ÓÃ»§ÒÑ¾­´æÔÚ";
+    public static final String STATUS_REGISTER_ERROR_MSG = "ç”¨æˆ·å·²ç»å­˜åœ¨";
     public static final int STATUS_WITHOUT_RELEASE = 301;
-    public static final String STATUS_WITHOUT_RELEASE_MSG = "Ã»ÓĞĞÂ°æ±¾";
+    public static final String STATUS_WITHOUT_RELEASE_MSG = "æ²¡æœ‰æ–°ç‰ˆæœ¬";
 
     public static final int STATUS_NO_FILE = 401;
-    public static final String STATUS_NO_FILE_MSG = "Ã»ÓĞÉÏ´«Í¼Æ¬";
+    public static final String STATUS_NO_FILE_MSG = "æ²¡æœ‰ä¸Šä¼ å›¾ç‰‡";
     public static final int STATUS_REGISTER_FILE_SIZE_BIG = 402;
-    public static final String STATUS_REGISTER_FILE_SIZE_BIG_MSG = "ÎÄ¼ş³¬¹ı10M";
+    public static final String STATUS_REGISTER_FILE_SIZE_BIG_MSG = "æ–‡ä»¶è¶…è¿‡10M";
 
 }

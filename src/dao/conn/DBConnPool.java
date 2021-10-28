@@ -4,25 +4,25 @@ import java.sql.*;
 import java.util.*;
 
 /**
- * Á¬½Ó³ØÀà
- * ÄÜ¹»¸ù¾ÝÒªÇó´´½¨ÐÂÁ¬½Ó,Ö±µ½×î´óÁ¬½ÓÊýÎªÖ¹.
+ * è¿žæŽ¥æ± ç±»
+ * èƒ½å¤Ÿæ ¹æ®è¦æ±‚åˆ›å»ºæ–°è¿žæŽ¥,ç›´åˆ°æœ€å¤§è¿žæŽ¥æ•°ä¸ºæ­¢.
  */
 public class DBConnPool {
-    //Êµ¼ÊÊ¹ÓÃÖÐµÄÁ¬½ÓÊý
+    //å®žé™…ä½¿ç”¨ä¸­çš„è¿žæŽ¥æ•°
     private int inUse = 0;
-    //¿ÕÏÐÁ¬½Ó
+    //ç©ºé—²è¿žæŽ¥
     private Vector connections = new Vector();
-    //Á¬½Ó³ØÃû
+    //è¿žæŽ¥æ± å
     private String poolname;
-    //Êý¾Ý¿â±êÊ¶
+    //æ•°æ®åº“æ ‡è¯†
     private String dbid;
-    //Çý¶¯³ÌÐòÃû
+    //é©±åŠ¨ç¨‹åºå
     private String drivername;
-    //Êý¾Ý¿âÕËºÅ
+    //æ•°æ®åº“è´¦å·
     private String username;
-    //Êý¾Ý¿âÃÜÂë
+    //æ•°æ®åº“å¯†ç 
     private String passwd;
-    //×î´óÁ¬½ÓÊý
+    //æœ€å¤§è¿žæŽ¥æ•°
     private int maxconn;
     static int link = 0;
 
@@ -36,12 +36,12 @@ public class DBConnPool {
     }
 
     /**
-     * ½«Á¬½Ó·µ»Ø¸øÁ¬½Ó³Ø
+     * å°†è¿žæŽ¥è¿”å›žç»™è¿žæŽ¥æ± 
      */
     public synchronized void releaseConnection(Connection con) {
-        // ½«Ö¸¶¨Á¬½Ó¼ÓÈëµ½ÏòÁ¿Ä©Î²
+        // å°†æŒ‡å®šè¿žæŽ¥åŠ å…¥åˆ°å‘é‡æœ«å°¾
         connections.addElement(con);
-        //Á¬½ÓÊý¼õÒ»
+        //è¿žæŽ¥æ•°å‡ä¸€
         inUse--;
     }
 
@@ -49,15 +49,15 @@ public class DBConnPool {
 
 
     /**
-     * ´ÓÁ¬½Ó³ØµÃµ½Ò»¸öÁ¬½Ó
+     * ä»Žè¿žæŽ¥æ± å¾—åˆ°ä¸€ä¸ªè¿žæŽ¥
      */
     public synchronized Connection getConnection() {
         Connection con = null;
         if (connections.size() > 0) {
-            // »ñÈ¡Á¬½ÓÁÐ±íÖÐ»ñµÃµÚÒ»¸öÁ¬½Ó
+            // èŽ·å–è¿žæŽ¥åˆ—è¡¨ä¸­èŽ·å¾—ç¬¬ä¸€ä¸ªè¿žæŽ¥
             con = (Connection) connections.elementAt(0);
             connections.removeElementAt(0);
-            //Èç¹û´ËÁ¬½ÓÒÑ¹Ø±Õ£¬Ôò¼ÌÐø»ñÈ¡
+            //å¦‚æžœæ­¤è¿žæŽ¥å·²å…³é—­ï¼Œåˆ™ç»§ç»­èŽ·å–
             try {
                 if (con.isClosed()) {
                     con = getConnection();
@@ -66,40 +66,40 @@ public class DBConnPool {
                 ex.printStackTrace();
             }
         }
-        //Èç¹ûÊµ¼ÊÊ¹ÓÃµÄÁ¬½ÓÐ¡ÓÚ×î´óÁ¬½ÓÊý£¬¾ÍÐÂ´´½¨Ò»¸öÁ¬½Ó
+        //å¦‚æžœå®žé™…ä½¿ç”¨çš„è¿žæŽ¥å°äºŽæœ€å¤§è¿žæŽ¥æ•°ï¼Œå°±æ–°åˆ›å»ºä¸€ä¸ªè¿žæŽ¥
         else if (maxconn == 0 || inUse < maxconn) {
             con = newConnection();
         }
         if (con != null) {
-            //Á¬½ÓÊýÔöÒ»
+            //è¿žæŽ¥æ•°å¢žä¸€
             inUse++;
             link++;
         }
-        //·µ»ØÒ»¸öÁ¬½Ó
+        //è¿”å›žä¸€ä¸ªè¿žæŽ¥
         return con;
     }
 
     /**
-     * ´´½¨ÐÂµÄÁ¬½Ó
+     * åˆ›å»ºæ–°çš„è¿žæŽ¥
      */
     private Connection newConnection() {
         Connection con = null;
         try {
-            //¼ÓÔØÇý¶¯³ÌÐò
+            //åŠ è½½é©±åŠ¨ç¨‹åº
             Class.forName(drivername);
-            //½¨Á¢Á¬½Ó
+            //å»ºç«‹è¿žæŽ¥
             con = DriverManager.getConnection(dbid, username, passwd);
         } catch (Exception e) {
             e.printStackTrace();
             ////logger.sysException.info("",e);
             return null;
         }
-        //·µ»Ø¸ÃÁ¬½Ó
+        //è¿”å›žè¯¥è¿žæŽ¥
         return con;
     }
 
     /**
-     * ¹Ø±ÕËùÓÐÁ¬½Ó
+     * å…³é—­æ‰€æœ‰è¿žæŽ¥
      */
     public synchronized void closeConn() {
         Enumeration allConnections = connections.elements();

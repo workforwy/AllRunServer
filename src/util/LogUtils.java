@@ -14,11 +14,11 @@ public class LogUtils {
 
     private LogUtils() {
         sysException = null;
-        //使用相对路径
+        //浣跨敤鐩稿璺緞
         String path = (LogUtils.class.getClassLoader().getResource("")).toString();
         System.out.println(path);
 
-        //去掉  file:/
+        //鍘绘帀  file:/
         path = path.substring(6);
         System.out.println(path);
 

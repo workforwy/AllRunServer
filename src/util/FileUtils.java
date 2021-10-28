@@ -8,6 +8,7 @@ import java.util.StringTokenizer;
  * @author wangyong
  */
 public class FileUtils {
+
     private String message;
     LogUtils logger = LogUtils.getInstance();
 
@@ -16,7 +17,7 @@ public class FileUtils {
 
     public static void main(String[] args) {
         FileUtils op = new FileUtils();
-        String content = "ÖÐ¹ú·À´óÑ§ÐÞ¸Ä";
+        String content = "ï¿½Ð¹ï¿½ï¿½ï¿½ï¿½ï¿½Ñ§ï¿½Þ¸ï¿½";
         // content=Tools.viewToUTF8(content);
         try {
 
@@ -33,8 +34,8 @@ public class FileUtils {
 
 
             //String file="D:\\JBossWeb\\webapps\\wwwMobiBobCom\\upLoadComicData\\75\\9";
-            //String file="c:\\12.zip";//ÄÜÉ¾³ý
-            String file = "D:\\JBossWeb\\webapps\\wwwMobiBobCom\\upLoadComicData\\75\\16\\12.zip";//ÄÜÉ¾³ý
+            //String file="c:\\12.zip";//ï¿½ï¿½É¾ï¿½ï¿½
+            String file = "D:\\JBossWeb\\webapps\\wwwMobiBobCom\\upLoadComicData\\75\\16\\12.zip";//ï¿½ï¿½É¾ï¿½ï¿½
             FileUtils o = new FileUtils();
             //o.delFile(file);
             o.delFolder(file);
@@ -46,10 +47,10 @@ public class FileUtils {
     }
 
     /**
-     * ¶ÁÈ¡Ò»¸öÎÄ¼þ¼ÐÏÂµÄËùÓÐÎÄ¼þÃû
+     * ï¿½ï¿½È¡Ò»ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½Âµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½
      *
-     * @param Path ´øÓÐÍêÕû¾ø¶ÔÂ·¾¶µÄÎÄ¼þ¼ÐÃû
-     * @return ·µ»ØList ÎÄ¼þÃûµÄ
+     * @param Path ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½ï¿½
+     * @return ï¿½ï¿½ï¿½ï¿½List ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½ï¿½
      */
     public void reName(String Path, String lang) {
 
@@ -86,11 +87,11 @@ public class FileUtils {
 
 
     /**
-     * ÏòÒ»¸öÎÄ¼þÒÔÒÔ×Ö·û¼¯UTF-8Ð´ÄÚÈÝ£¬
+     * ï¿½ï¿½Ò»ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö·ï¿½ï¿½ï¿½UTF-8Ð´ï¿½ï¿½ï¿½Ý£ï¿½
      *
-     * @param filePathAndName ÎÄ±¾ÎÄ¼þÍêÕû¾ø¶ÔÂ·¾¶¼°ÎÄ¼þÃû
-     * @param fileContent     ÎÄ±¾ÎÄ¼þÄÚÈÝ
-     * @return true  ³É¹¦  false  Ê§°Ü
+     * @param filePathAndName ï¿½Ä±ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½
+     * @param fileContent     ï¿½Ä±ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½ï¿½
+     * @return true  ï¿½É¹ï¿½  false  Ê§ï¿½ï¿½
      */
     public boolean WriteFileByte(String filePathAndName, String fileContent) {
         boolean r = false;
@@ -116,11 +117,11 @@ public class FileUtils {
     }
 
     /**
-     * ÏòÒ»¸öÎÄ¼þÒÔÖ¸¶¨×Ö·û¼¯±àÂëÐ´ÄÚÈÝ£¬
+     * ï¿½ï¿½Ò»ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½Ö¸ï¿½ï¿½ï¿½Ö·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð´ï¿½ï¿½ï¿½Ý£ï¿½
      *
-     * @param filePathAndName ÎÄ±¾ÎÄ¼þÍêÕû¾ø¶ÔÂ·¾¶¼°ÎÄ¼þÃû
-     * @param fileContent     ÎÄ±¾ÎÄ¼þÄÚÈÝ
-     * @param encoding        ×Ö·û¼¯
+     * @param filePathAndName ï¿½Ä±ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½
+     * @param fileContent     ï¿½Ä±ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½ï¿½
+     * @param encoding        ï¿½Ö·ï¿½ï¿½ï¿½
      * @return
      */
     public boolean WriteFile_bak(String filePathAndName, String fileContent, String encoding) {
@@ -162,7 +163,7 @@ public class FileUtils {
     }
 
     /**
-     * ¶Á³öÄÚÈÝ£¬¼ÓÉÏÉÏ»»ÐÐ·ûºÅ
+     * ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ý£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï»ï¿½ï¿½Ð·ï¿½ï¿½ï¿½
      *
      * @param filePathAndName
      * @param encoding
@@ -202,10 +203,10 @@ public class FileUtils {
 
 
     /**
-     * ¶ÁÈ¡Ò»¸öÎÄ¼þ¼ÐÏÂµÄËùÓÐÎÄ¼þÃû
+     * ï¿½ï¿½È¡Ò»ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½Âµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½
      *
-     * @param path ´øÓÐÍêÕû¾ø¶ÔÂ·¾¶µÄÎÄ¼þ¼ÐÃû
-     * @return ·µ»ØList ÎÄ¼þÃûµÄ
+     * @param path ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½ï¿½
+     * @return ï¿½ï¿½ï¿½ï¿½List ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½ï¿½
      */
     public ArrayList getfiles(String Path) {
         ArrayList list = new ArrayList();
@@ -238,11 +239,11 @@ public class FileUtils {
     }
 
     /**
-     * ¶ÁÈ¡ÎÄ±¾ÎÄ¼þÄÚÈÝ
+     * ï¿½ï¿½È¡ï¿½Ä±ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½ï¿½
      *
-     * @param filePathAndName ´øÓÐÍêÕû¾ø¶ÔÂ·¾¶µÄÎÄ¼þÃû
-     * @param encoding        ÎÄ±¾ÎÄ¼þ´ò¿ªµÄ±àÂë·½Ê½
-     * @return ·µ»ØÎÄ±¾ÎÄ¼þµÄÄÚÈÝ
+     * @param filePathAndName ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½
+     * @param encoding        ï¿½Ä±ï¿½ï¿½Ä¼ï¿½ï¿½ò¿ªµÄ±ï¿½ï¿½ë·½Ê½
+     * @return ï¿½ï¿½ï¿½ï¿½ï¿½Ä±ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
      */
     public String readTxt(String filePathAndName, String encoding) throws IOException {
         encoding = encoding.trim();
@@ -273,10 +274,10 @@ public class FileUtils {
     }
 
     /**
-     * ÐÂ½¨Ä¿Â¼
+     * ï¿½Â½ï¿½Ä¿Â¼
      *
      * @param folderPath Ä¿Â¼
-     * @return ·µ»ØÄ¿Â¼´´½¨ºóµÄÂ·¾¶
+     * @return ï¿½ï¿½ï¿½ï¿½Ä¿Â¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½
      */
     public String createFolder(String folderPath) {
         String txt = folderPath;
@@ -293,11 +294,11 @@ public class FileUtils {
     }
 
     /**
-     * ¶à¼¶Ä¿Â¼´´½¨
+     * ï¿½à¼¶Ä¿Â¼ï¿½ï¿½ï¿½ï¿½
      *
-     * @param folderPath ×¼±¸ÒªÔÚ±¾¼¶Ä¿Â¼ÏÂ´´½¨ÐÂÄ¿Â¼µÄÄ¿Â¼Â·¾¶ ÀýÈç c:myf
-     * @param paths      ÎÞÏÞ¼¶Ä¿Â¼²ÎÊý£¬¸÷¼¶Ä¿Â¼ÒÔµ¥ÊýÏßÇø·Ö ÀýÈç a|b|c
-     * @return ·µ»Ø´´½¨ÎÄ¼þºóµÄÂ·¾¶ ÀýÈç c:myfac
+     * @param folderPath ×¼ï¿½ï¿½Òªï¿½Ú±ï¿½ï¿½ï¿½Ä¿Â¼ï¿½Â´ï¿½ï¿½ï¿½ï¿½ï¿½Ä¿Â¼ï¿½ï¿½Ä¿Â¼Â·ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ c:myf
+     * @param paths      ï¿½ï¿½ï¿½Þ¼ï¿½Ä¿Â¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¿Â¼ï¿½Ôµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ a|b|c
+     * @return ï¿½ï¿½ï¿½Ø´ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ c:myfac
      */
     public String createFolders(String folderPath, String paths) {
         String txts = folderPath;
@@ -321,10 +322,10 @@ public class FileUtils {
 
 
     /**
-     * ÐÂ½¨ÎÄ¼þ
+     * ï¿½Â½ï¿½ï¿½Ä¼ï¿½
      *
-     * @param filePathAndName ÎÄ±¾ÎÄ¼þÍêÕû¾ø¶ÔÂ·¾¶¼°ÎÄ¼þÃû
-     * @param fileContent     ÎÄ±¾ÎÄ¼þÄÚÈÝ
+     * @param filePathAndName ï¿½Ä±ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½
+     * @param fileContent     ï¿½Ä±ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½ï¿½
      * @return
      */
     public void createFile(String filePathAndName, String fileContent) {
@@ -349,10 +350,10 @@ public class FileUtils {
 
 
     /**
-     * ÓÐ±àÂë·½Ê½µÄÎÄ¼þ´´½¨
-     * @param filePathAndName ÎÄ±¾ÎÄ¼þÍêÕû¾ø¶ÔÂ·¾¶¼°ÎÄ¼þÃû
-     * @param fileContent ÎÄ±¾ÎÄ¼þÄÚÈÝ
-     * @param encoding ±àÂë·½Ê½ ÀýÈç GBK »òÕß UTF-8
+     * ï¿½Ð±ï¿½ï¿½ë·½Ê½ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½ï¿½
+     * @param filePathAndName ï¿½Ä±ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½
+     * @param fileContent ï¿½Ä±ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½ï¿½
+     * @param encoding ï¿½ï¿½ï¿½ë·½Ê½ ï¿½ï¿½ï¿½ï¿½ GBK ï¿½ï¿½ï¿½ï¿½ UTF-8
      * @return
      */
   /* public void createFile(String filePathAndName, String fileContent, String encoding) {
@@ -370,16 +371,16 @@ public class FileUtils {
            myFile.close();
        }
        catch (Exception e) {
-           message = "´´½¨ÎÄ¼þ²Ù×÷³ö´í";
+           message = "ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½";
        }
    } 
 */
 
     /**
-     * É¾³ýÎÄ¼þ
+     * É¾ï¿½ï¿½ï¿½Ä¼ï¿½
      *
-     * @param filePathAndName ÎÄ±¾ÎÄ¼þÍêÕû¾ø¶ÔÂ·¾¶¼°ÎÄ¼þÃû
-     * @return Boolean ³É¹¦É¾³ý·µ»ØtrueÔâÓöÒì³£·µ»Øfalse
+     * @param filePathAndName ï¿½Ä±ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½
+     * @return Boolean ï¿½É¹ï¿½É¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½trueï¿½ï¿½ï¿½ï¿½ï¿½ì³£ï¿½ï¿½ï¿½ï¿½false
      */
     public boolean delFile(String filePathAndName) {
         boolean bea = false;
@@ -391,7 +392,7 @@ public class FileUtils {
                 bea = true;
             } else {
                 bea = false;
-                message = (filePathAndName + "<br>É¾³ýÎÄ¼þ²Ù×÷³ö´í");
+                message = (filePathAndName + "<br>É¾ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½");
             }
         } catch (Exception e) {
             //logger.sysException.info("",e);
@@ -401,18 +402,18 @@ public class FileUtils {
 
 
     /**
-     * É¾³ýÎÄ¼þ¼Ð ±ØÐëÊÇc:\\1 ²»ÄÜÊÇc:\
+     * É¾ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½c:\\1 ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½c:\
      *
-     * @param folderPath ÎÄ¼þ¼ÐÍêÕû¾ø¶ÔÂ·¾¶
+     * @param folderPath ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½
      * @return
      */
     public void delFolder(String folderPath) {
         try {
-            delAllFile(folderPath); //É¾³ýÍêÀïÃæËùÓÐÄÚÈÝ
+            delAllFile(folderPath); //É¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
             String filePath = folderPath;
             filePath = filePath.toString();
             File myFilePath = new File(filePath);
-            myFilePath.delete(); //É¾³ý¿ÕÎÄ¼þ¼Ð
+            myFilePath.delete(); //É¾ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½
         } catch (Exception e) {
             //logger.sysException.info("",e);
         }
@@ -420,9 +421,9 @@ public class FileUtils {
 
 
     /**
-     * É¾³ýÖ¸¶¨ÎÄ¼þ¼ÐÏÂËùÓÐÎÄ¼þ
+     * É¾ï¿½ï¿½Ö¸ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½
      *
-     * @param path ÎÄ¼þ¼ÐÍêÕû¾ø¶ÔÂ·¾¶
+     * @param path ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½
      * @return
      */
     public boolean delAllFile(String path) {
@@ -446,8 +447,8 @@ public class FileUtils {
                 temp.delete();
             }
             if (temp.isDirectory()) {
-                delAllFile(path + "/" + tempList[i]);//ÏÈÉ¾³ýÎÄ¼þ¼ÐÀïÃæµÄÎÄ¼þ
-                delFolder(path + "/" + tempList[i]);//ÔÙÉ¾³ý¿ÕÎÄ¼þ¼Ð
+                delAllFile(path + "/" + tempList[i]);//ï¿½ï¿½É¾ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½
+                delFolder(path + "/" + tempList[i]);//ï¿½ï¿½É¾ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½
                 bea = true;
             }
         }
@@ -456,10 +457,10 @@ public class FileUtils {
 
 
     /**
-     * ¸´ÖÆµ¥¸öÎÄ¼þ
+     * ï¿½ï¿½ï¿½Æµï¿½ï¿½ï¿½ï¿½Ä¼ï¿½
      *
-     * @param oldPathFile ×¼±¸¸´ÖÆµÄÎÄ¼þÔ´
-     * @param newPathFile ¿½±´µ½ÐÂ¾ø¶ÔÂ·¾¶´øÎÄ¼þÃû
+     * @param oldPathFile ×¼ï¿½ï¿½ï¿½ï¿½ï¿½Æµï¿½ï¿½Ä¼ï¿½Ô´
+     * @param newPathFile ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Â¾ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½
      * @return
      */
     public void copyFile(String oldPathFile, String newPathFile) {
@@ -467,12 +468,12 @@ public class FileUtils {
             int bytesum = 0;
             int byteread = 0;
             File oldfile = new File(oldPathFile);
-            if (oldfile.exists()) { //ÎÄ¼þ´æÔÚÊ±
-                InputStream inStream = new FileInputStream(oldPathFile); //¶ÁÈëÔ­ÎÄ¼þ
+            if (oldfile.exists()) { //ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½ï¿½Ê±
+                InputStream inStream = new FileInputStream(oldPathFile); //ï¿½ï¿½ï¿½ï¿½Ô­ï¿½Ä¼ï¿½
                 FileOutputStream fs = new FileOutputStream(newPathFile);
                 byte[] buffer = new byte[1444];
                 while ((byteread = inStream.read(buffer)) != -1) {
-                    bytesum += byteread; //×Ö½ÚÊý ÎÄ¼þ´óÐ¡
+                    bytesum += byteread; //ï¿½Ö½ï¿½ï¿½ï¿½ ï¿½Ä¼ï¿½ï¿½ï¿½Ð¡
                     System.out.println(bytesum);
                     fs.write(buffer, 0, byteread);
                 }
@@ -485,15 +486,15 @@ public class FileUtils {
 
 
     /**
-     * ¸´ÖÆÕû¸öÎÄ¼þ¼ÐµÄÄÚÈÝ
+     * ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½Ðµï¿½ï¿½ï¿½ï¿½ï¿½
      *
-     * @param oldPath ×¼±¸¿½±´µÄÄ¿Â¼
-     * @param newPath Ö¸¶¨¾ø¶ÔÂ·¾¶µÄÐÂÄ¿Â¼
+     * @param oldPath ×¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¿Â¼
+     * @param newPath Ö¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¿Â¼
      * @return
      */
     public void copyFolder(String oldPath, String newPath) {
         try {
-            new File(newPath).mkdirs(); //Èç¹ûÎÄ¼þ¼Ð²»´æÔÚ Ôò½¨Á¢ÐÂÎÄ¼þ¼Ð
+            new File(newPath).mkdirs(); //ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½Ð²ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½
             File a = new File(oldPath);
             String[] file = a.list();
             File temp = null;
@@ -516,7 +517,7 @@ public class FileUtils {
                     output.close();
                     input.close();
                 }
-                if (temp.isDirectory()) {//Èç¹ûÊÇ×ÓÎÄ¼þ¼Ð
+                if (temp.isDirectory()) {//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½
                     copyFolder(oldPath + "/" + file[i], newPath + "/" + file[i]);
                 }
             }
@@ -527,7 +528,7 @@ public class FileUtils {
 
 
     /**
-     * ÒÆ¶¯ÎÄ¼þ
+     * ï¿½Æ¶ï¿½ï¿½Ä¼ï¿½
      *
      * @param oldPath
      * @param newPath
@@ -540,7 +541,7 @@ public class FileUtils {
 
 
     /**
-     * ÒÆ¶¯Ä¿Â¼
+     * ï¿½Æ¶ï¿½Ä¿Â¼
      *
      * @param oldPath
      * @param newPath

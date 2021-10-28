@@ -23,13 +23,13 @@ public class PageStatus {
     }
 
     /**
-     * Êä³öÆğÊ¼ÈÕÆÚÄêÔÂÈÕĞ¡Ê±,Í¨¹ı ÏÂÀ­²Ëµ¥Ãû³Æ·Ö±ğÎª StartYear,StartMonth,StartDay,StartHour
+     * è¾“å‡ºèµ·å§‹æ—¥æœŸå¹´æœˆæ—¥å°æ—¶,é€šè¿‡ ä¸‹æ‹‰èœå•åç§°åˆ†åˆ«ä¸º StartYear,StartMonth,StartDay,StartHour
      *
      * @param request
      * @param yearSessionName
      * @param MonthSessionName
      * @param DaySessionName
-     * @return html×Ö·û´®
+     * @return htmlå­—ç¬¦ä¸²
      * @throws Exception
      */
     public static String getStartYearMonthDayHourHtml(HttpServletRequest request, String yearSessionName, String MonthSessionName, String DaySessionName, String HourSessionName) throws Exception {
@@ -55,7 +55,7 @@ public class PageStatus {
             }
         }
         sb.append("</select>");
-        sb.append("Äê");
+        sb.append("å¹´");
 
         try {
             select = Integer.parseInt(String.valueOf(session
@@ -73,7 +73,7 @@ public class PageStatus {
             }
         }
         sb.append("</select>");
-        sb.append("ÔÂ");
+        sb.append("æœˆ");
 
         try {
             select = Integer.parseInt(String.valueOf(session
@@ -91,7 +91,7 @@ public class PageStatus {
             }
         }
         sb.append("</select>");
-        sb.append("ÈÕ");
+        sb.append("æ—¥");
 
         try {
             select = Integer.parseInt(String.valueOf(session
@@ -109,12 +109,12 @@ public class PageStatus {
             }
         }
         sb.append("</select>");
-        sb.append("µã");
+        sb.append("ç‚¹");
         return new String(sb.toString().getBytes("GB2312"));
     }
 
     /**
-     * Êä³ö½áÊøÈÕÆÚÄêÔÂÈÕĞ¡Ê±,Í¨¹ı ÏÂÀ­²Ëµ¥Ãû³Æ·Ö±ğÎª EndYear,EndMonth,EndDay,EndHour
+     * è¾“å‡ºç»“æŸæ—¥æœŸå¹´æœˆæ—¥å°æ—¶,é€šè¿‡ ä¸‹æ‹‰èœå•åç§°åˆ†åˆ«ä¸º EndYear,EndMonth,EndDay,EndHour
      *
      * @param request
      * @param yearSessionName
@@ -147,7 +147,7 @@ public class PageStatus {
             }
         }
         sb.append("</select>");
-        sb.append("Äê");
+        sb.append("å¹´");
 
         try {
             select = Integer.parseInt(String.valueOf(session
@@ -165,7 +165,7 @@ public class PageStatus {
             }
         }
         sb.append("</select>");
-        sb.append("ÔÂ");
+        sb.append("æœˆ");
 
         try {
             select = Integer.parseInt(String.valueOf(session
@@ -183,7 +183,7 @@ public class PageStatus {
             }
         }
         sb.append("</select>");
-        sb.append("ÈÕ");
+        sb.append("æ—¥");
 
         try {
             select = Integer.parseInt(String.valueOf(session
@@ -201,17 +201,17 @@ public class PageStatus {
             }
         }
         sb.append("</select>");
-        sb.append("µã");
+        sb.append("ç‚¹");
         return new String(sb.toString().getBytes("GB2312"));
     }
 
     /**
-     * Êä³öµ±Ç°ÄêÔÂ,Í¨¹ı ÏÂÀ­²Ëµ¥Ãû³Æ·Ö±ğÎª StartYear,StartMonth
+     * è¾“å‡ºå½“å‰å¹´æœˆ,é€šè¿‡ ä¸‹æ‹‰èœå•åç§°åˆ†åˆ«ä¸º StartYear,StartMonth
      *
      * @param request
      * @param yearSessionName
      * @param MonthSessionName
-     * @return html×Ö·û´®
+     * @return htmlå­—ç¬¦ä¸²
      * @throws Exception
      */
     public static String getNowYearMonthHtml(HttpServletRequest request,
@@ -238,7 +238,7 @@ public class PageStatus {
             }
         }
         sb.append("</select>");
-        sb.append("Äê");
+        sb.append("å¹´");
 
         try {
             select = Integer.parseInt(String.valueOf(session
@@ -256,19 +256,19 @@ public class PageStatus {
             }
         }
         sb.append("</select>");
-        sb.append("ÔÂ");
+        sb.append("æœˆ");
 
         return new String(sb.toString().getBytes("GB2312"));
     }
 
     /**
-     * Êä³öÆğÊ¼ÈÕÆÚÄêÔÂÈÕ,Í¨¹ı ÏÂÀ­²Ëµ¥Ãû³Æ·Ö±ğÎª StartYear,StartMonth,StartDay
+     * è¾“å‡ºèµ·å§‹æ—¥æœŸå¹´æœˆæ—¥,é€šè¿‡ ä¸‹æ‹‰èœå•åç§°åˆ†åˆ«ä¸º StartYear,StartMonth,StartDay
      *
      * @param request
      * @param yearSessionName
      * @param MonthSessionName
      * @param DaySessionName
-     * @return html×Ö·û´®
+     * @return htmlå­—ç¬¦ä¸²
      * @throws Exception
      */
     public static String getStartYear2006MonthDayHtml(HttpServletRequest request,
@@ -296,7 +296,7 @@ public class PageStatus {
             }
         }
         sb.append("</select>");
-        sb.append("Äê");
+        sb.append("å¹´");
 
         try {
             select = Integer.parseInt(String.valueOf(session
@@ -314,7 +314,7 @@ public class PageStatus {
             }
         }
         sb.append("</select>");
-        sb.append("ÔÂ");
+        sb.append("æœˆ");
 
         try {
             select = Integer.parseInt(String.valueOf(session
@@ -332,19 +332,19 @@ public class PageStatus {
             }
         }
         sb.append("</select>");
-        sb.append("ÈÕ");
+        sb.append("æ—¥");
         return new String(sb.toString().getBytes("GB2312"));
     }
 
 
     /**
-     * Êä³öÆğÊ¼ÈÕÆÚÄêÔÂÈÕ,Í¨¹ı ÏÂÀ­²Ëµ¥Ãû³Æ·Ö±ğÎª StartYear,StartMonth,StartDay
+     * è¾“å‡ºèµ·å§‹æ—¥æœŸå¹´æœˆæ—¥,é€šè¿‡ ä¸‹æ‹‰èœå•åç§°åˆ†åˆ«ä¸º StartYear,StartMonth,StartDay
      *
      * @param request
      * @param yearSessionName
      * @param MonthSessionName
      * @param DaySessionName
-     * @return html×Ö·û´®
+     * @return htmlå­—ç¬¦ä¸²
      * @throws Exception
      */
     public static String getStartYearMonthDayHtml(HttpServletRequest request,
@@ -372,7 +372,7 @@ public class PageStatus {
             }
         }
         sb.append("</select>");
-        sb.append("Äê");
+        sb.append("å¹´");
 
         try {
             select = Integer.parseInt(String.valueOf(session
@@ -390,7 +390,7 @@ public class PageStatus {
             }
         }
         sb.append("</select>");
-        sb.append("ÔÂ");
+        sb.append("æœˆ");
 
         try {
             select = Integer.parseInt(String.valueOf(session
@@ -408,12 +408,12 @@ public class PageStatus {
             }
         }
         sb.append("</select>");
-        sb.append("ÈÕ");
+        sb.append("æ—¥");
         return new String(sb.toString().getBytes("GB2312"));
     }
 
     /**
-     * Êä³ö½áÊøÈÕÆÚÄêÔÂÈÕ,Í¨¹ı ÏÂÀ­²Ëµ¥Ãû³Æ·Ö±ğÎª EndYear,EndMonth,EndDay
+     * è¾“å‡ºç»“æŸæ—¥æœŸå¹´æœˆæ—¥,é€šè¿‡ ä¸‹æ‹‰èœå•åç§°åˆ†åˆ«ä¸º EndYear,EndMonth,EndDay
      *
      * @param request
      * @param yearSessionName
@@ -447,7 +447,7 @@ public class PageStatus {
             }
         }
         sb.append("</select>");
-        sb.append("Äê");
+        sb.append("å¹´");
 
         try {
             selectMonth = Integer.parseInt(String.valueOf(session
@@ -465,7 +465,7 @@ public class PageStatus {
             }
         }
         sb.append("</select>");
-        sb.append("ÔÂ");
+        sb.append("æœˆ");
 
         try {
             selectDay = Integer.parseInt(String.valueOf(session
@@ -490,12 +490,12 @@ public class PageStatus {
             }
         }
         sb.append("</select>");
-        sb.append("ÈÕ");
+        sb.append("æ—¥");
         return new String(sb.toString().getBytes("GB2312"));
     }
 
     /**
-     * Êä³ö½áÊøÈÕÆÚÄêÔÂÈÕ,Í¨¹ı ÏÂÀ­²Ëµ¥Ãû³Æ·Ö±ğÎª EndYear,EndMonth,EndDay
+     * è¾“å‡ºç»“æŸæ—¥æœŸå¹´æœˆæ—¥,é€šè¿‡ ä¸‹æ‹‰èœå•åç§°åˆ†åˆ«ä¸º EndYear,EndMonth,EndDay
      *
      * @param request
      * @param yearSessionName
@@ -528,7 +528,7 @@ public class PageStatus {
             }
         }
         sb.append("</select>");
-        sb.append("Äê");
+        sb.append("å¹´");
 
         try {
             select = Integer.parseInt(String.valueOf(session
@@ -546,7 +546,7 @@ public class PageStatus {
             }
         }
         sb.append("</select>");
-        sb.append("ÔÂ");
+        sb.append("æœˆ");
 
         try {
             select = Integer.parseInt(String.valueOf(session
@@ -564,13 +564,13 @@ public class PageStatus {
             }
         }
         sb.append("</select>");
-        sb.append("ÈÕ");
+        sb.append("æ—¥");
         return new String(sb.toString().getBytes("GB2312"));
     }
 
 
     /**
-     * Êä³ö½áÊøÈÕÆÚÄêÔÂÈÕ,Í¨¹ı ÏÂÀ­²Ëµ¥Ãû³Æ·Ö±ğÎª EndYear,EndMonth,EndDay
+     * è¾“å‡ºç»“æŸæ—¥æœŸå¹´æœˆæ—¥,é€šè¿‡ ä¸‹æ‹‰èœå•åç§°åˆ†åˆ«ä¸º EndYear,EndMonth,EndDay
      *
      * @param request
      * @param yearSessionName
@@ -603,7 +603,7 @@ public class PageStatus {
             }
         }
         sb.append("</select>");
-        sb.append("Äê");
+        sb.append("å¹´");
 
         try {
             select = Integer.parseInt(String.valueOf(session
@@ -621,7 +621,7 @@ public class PageStatus {
             }
         }
         sb.append("</select>");
-        sb.append("ÔÂ");
+        sb.append("æœˆ");
 
         try {
             select = Integer.parseInt(String.valueOf(session
@@ -639,16 +639,16 @@ public class PageStatus {
             }
         }
         sb.append("</select>");
-        sb.append("ÈÕ");
+        sb.append("æ—¥");
         return new String(sb.toString().getBytes("GB2312"));
     }
 
     /**
-     * ½«½ÓÊÜµ½µÄÖµ·ÅÔÚsessionÖĞ
+     * å°†æ¥å—åˆ°çš„å€¼æ”¾åœ¨sessionä¸­
      *
      * @param request
-     * @param input       ±íµ¥¿Ø¼şµÄÃû³Æ
-     * @param var         ´æ·ÅÖµµÄ±äÁ¿
+     * @param input       è¡¨å•æ§ä»¶çš„åç§°
+     * @param var         å­˜æ”¾å€¼çš„å˜é‡
      * @param sessionname
      * @return
      */

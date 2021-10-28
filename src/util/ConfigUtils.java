@@ -9,10 +9,10 @@ public class ConfigUtils {
 
     public static String siteRoot = "";
 
-    //·¢²¼Ê±ÓÃ
+    //å‘å¸ƒæ—¶ç”¨
     public static final String webSite = "http://192.168.1.10";
 
-    //²âÊÔ¿ª·¢»úÄ£ÄâÆ÷ÉÏandroid¿Í»§¶ËÊ±Ê¹ÓÃ£¬¿ª·¢»úÄ£ÄâÆ÷ÉÏandroid¿Í»§¶Ë±ØĞëÓÃipÖ±½Ó·ÃÎÊ
+    //æµ‹è¯•å¼€å‘æœºæ¨¡æ‹Ÿå™¨ä¸Šandroidå®¢æˆ·ç«¯æ—¶ä½¿ç”¨ï¼Œå¼€å‘æœºæ¨¡æ‹Ÿå™¨ä¸Šandroidå®¢æˆ·ç«¯å¿…é¡»ç”¨ipç›´æ¥è®¿é—®
 //    public static final String webSite="http://192.168.1.101";
 
     public static final String comicImageDir = "upLoadComicData";
@@ -21,16 +21,16 @@ public class ConfigUtils {
         siteRoot = (LogUtils.class.getClassLoader().getResource("")).toString();
         System.out.println(siteRoot);
 
-        //È¥µôfile:/
+        //å»æ‰file:/
         siteRoot = siteRoot.substring(6);
         System.out.println(siteRoot);
 
-        //È¥µôWEB-INF/classes/
+        //å»æ‰WEB-INF/classes/
         int length = siteRoot.length();
         siteRoot = siteRoot.substring(0, length - "/WEB-INF/classes/".length());
         System.out.println(siteRoot);
 
-        //°Ñ/Ìæ»»³É \\
+        //æŠŠ/æ›¿æ¢æˆ \\
         siteRoot = Tools.replaceString(siteRoot, "/", "\\");
         System.out.println(siteRoot);
     }

@@ -23,8 +23,9 @@ public class SetCharacterEncodingFilter implements Filter {
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
         if (ignore || (request.getCharacterEncoding() == null)) {
             String encoding = selectEncoding(request);
-            if (encoding != null)
+            if (encoding != null) {
                 request.setCharacterEncoding(encoding);
+            }
         }
         chain.doFilter(request, response);
     }

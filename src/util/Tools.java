@@ -33,10 +33,6 @@ public class Tools {
         return Tools.addZero(String.valueOf(str), maxLen);
     }
 
-
-
-
-
     public static String getExceptionStackTraceString(Exception e) {
         String errorInfo = "";
         StringWriter sw = new StringWriter();
@@ -232,8 +228,9 @@ public class Tools {
         int nLen = strUrl.length();
         for (int i = 0; i < nLen; i++) {
             String strTmp = String.valueOf(strUrl.charAt(i));
-            if (strTmp.equals("/"))
+            if ("/".equals(strTmp)) {
                 strTmp = "%2F";
+            }
             strRt += strTmp;
         }
         return strRt;
@@ -248,16 +245,19 @@ public class Tools {
      */
     public static String decodeUrlPush(String strUrl) {
         String strRt = "";
-        if (strUrl == null || "".equals(strUrl))
+        if (strUrl == null || "".equals(strUrl)) {
             return "";
+        }
         strUrl = strUrl.trim();
         int nLen = strUrl.length();
         for (int i = 0; i < nLen; i++) {
             String strTmp = String.valueOf(strUrl.charAt(i));
-            if (strTmp.equals("/"))
+            if (strTmp.equals("/")) {
                 strTmp = "%2F";
-            if (strTmp.equals("&"))
+            }
+            if (strTmp.equals("&")) {
                 strTmp = "%26";
+            }
             strRt += strTmp;
         }
         return strRt;
@@ -270,14 +270,16 @@ public class Tools {
      * @return true ������ false ��������
      */
     public static boolean isNum(String strValue) {
-        if (strValue == null || "".equals(strValue))
+        if (strValue == null || "".equals(strValue)) {
             return false;
+        }
         strValue = strValue.trim();
         int nLen = strValue.length();
         for (int i = 0; i < nLen; i++) {
             char cTmp = strValue.charAt(i);
-            if (!Character.isDigit(cTmp))
+            if (!Character.isDigit(cTmp)) {
                 return false;
+            }
         }
         return true;
     }
@@ -591,23 +593,26 @@ public class Tools {
         String s1 = s;
         try {
             StringBuffer stringbuffer = new StringBuffer();
-            for (int i = 0; i < s1.length(); i++)
+            for (int i = 0; i < s1.length(); i++) {
                 if (s1.charAt(i) > '\177') {
                     stringbuffer.append("&#x");
                     String s2 = Integer.toHexString(s1.charAt(i));
                     StringBuffer stringbuffer1 = new StringBuffer(s2);
                     stringbuffer1.reverse();
                     int l = 4 - stringbuffer1.length();
-                    for (int j = 0; j < l; j++)
+                    for (int j = 0; j < l; j++) {
                         stringbuffer1.append('0');
+                    }
 
-                    for (int k = 0; k < 4; k++)
+                    for (int k = 0; k < 4; k++) {
                         stringbuffer.append(stringbuffer1.charAt(3 - k));
+                    }
 
                     stringbuffer.append(';');
                 } else {
                     stringbuffer.append(s1.charAt(i));
                 }
+            }
 
             return stringbuffer.toString();
         } catch (Exception exception) {
@@ -682,8 +687,9 @@ public class Tools {
      * gb2312 to UTF8
      */
     public static String gbk2utf8(String a) {
-        if (isNull(a))
+        if (isNull(a)) {
             return null;
+        }
         byte[] b = null;
         try {
             b = a.getBytes("UTF-16");
@@ -705,8 +711,9 @@ public class Tools {
         StringBuffer sb = new StringBuffer();
         for (int i = 0; i < bb.length; i++) {
             if (i % 4 == 0) {
-                if (i != 0)
+                if (i != 0) {
                     sb.append(";");
+                }
                 sb.append("&#x");
             }
             sb.append((char) bb[i]);

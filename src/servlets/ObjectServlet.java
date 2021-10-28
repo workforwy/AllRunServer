@@ -27,7 +27,7 @@ public class ObjectServlet extends HttpServlet {
             ObjectInputStream ois = new ObjectInputStream(request.getInputStream());
             QueryEntity queryEntity = (QueryEntity) ois.readObject();
 
-            //¥¶¿Ì
+            //Â§ÑÁêÜ
             WordEntity wordEntity = new WordEntity();
             wordEntity.setMp3Url("ok.mp3");
 
