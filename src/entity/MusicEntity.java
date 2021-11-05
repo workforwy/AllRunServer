@@ -1,6 +1,6 @@
 package entity;
 
-public class Music {
+public class MusicEntity {
     private String durationtime;
     private String downcount;
     private String favcount;
@@ -13,7 +13,7 @@ public class Music {
     private String albumpic;
     private int id;
 
-    public Music(String durationtime, String downcount, String favcount, String singer, String album, String author, String composer, String musicpath, String name, String albumpic, int id) {
+    public MusicEntity(String durationtime, String downcount, String favcount, String singer, String album, String author, String composer, String musicpath, String name, String albumpic, int id) {
         this.durationtime = durationtime;
         this.downcount = downcount;
         this.favcount = favcount;
