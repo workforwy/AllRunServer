@@ -34,7 +34,7 @@ public class LogUtils {
     }
 
 
-    static void init() throws Exception {
+    static void init() {
         singleton = new LogUtils();
     }
 
