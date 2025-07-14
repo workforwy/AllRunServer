@@ -4,7 +4,7 @@ import dao.operate.Modify;
 import dao.operate.Select;
 import dao.operate.SetParameter;
 import entity.TraceEntity;
-import util.Const;
+import util.Constants;
 import util.Tools;
 
 import java.sql.PreparedStatement;
@@ -62,7 +62,7 @@ public class TraceDAO {
     }
 
     public int addTrace(final TraceEntity traceEntity, final int sportId) {
-        int statusCode = Const.STATUS_SERVER_ERROR;
+        int statusCode = Constants.STATUS_SERVER_ERROR;
         try {
             String sql = "insert into trace" + "(" + col_sportId + ","
                     + col_sportTime + "," + col_latitude + "," + col_longitude + ") values(?,?,?,?)";
@@ -81,12 +81,12 @@ public class TraceDAO {
 
             int id = modify.exec(sql, new SetParam());
             if (id >= 1) {
-                statusCode = Const.STATUS_OK;
+                statusCode = Constants.STATUS_OK;
             }
 
         } catch (Exception e) {
             // TODO Auto-generated catch block
-            statusCode = Const.STATUS_SERVER_ERROR;
+            statusCode = Constants.STATUS_SERVER_ERROR;
             e.printStackTrace();
             Tools.writeException(e);
         }

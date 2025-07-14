@@ -7,7 +7,6 @@ import dao.operate.Modify;
 import dao.operate.Select;
 import dao.operate.SetParameter;
 import entity.TopicEntity;
-import entity.UserEntity;
 import util.*;
 
 public class TopicDAO {
@@ -74,7 +73,7 @@ public class TopicDAO {
     }
 
     public int addTopic(final TopicEntity topicEntity) {
-        int statusCode = Const.STATUS_SERVER_ERROR;
+        int statusCode = Constants.STATUS_SERVER_ERROR;
         try {
             String sql = "insert into topic" + "(" + col_username + ","
                     + col_content + "," + col_imageUrl + "," + col_address
@@ -98,12 +97,12 @@ public class TopicDAO {
 
             int id = modify.exec(sql, new SetParam());
             if (id >= 1) {
-                statusCode = Const.STATUS_OK;
+                statusCode = Constants.STATUS_OK;
             }
 
         } catch (Exception e) {
             // TODO Auto-generated catch block
-            statusCode = Const.STATUS_SERVER_ERROR;
+            statusCode = Constants.STATUS_SERVER_ERROR;
             e.printStackTrace();
             Tools.writeException(e);
         }

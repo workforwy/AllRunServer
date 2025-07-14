@@ -1,4 +1,4 @@
-<%@ page import="util.Const" %>
+<%@ page import="util.Constants" %>
 <%@ page import="java.io.File" %>
 <%@ page import="util.Tools" %>
 <%@ page import="org.apache.commons.fileupload.FileItem" %>
@@ -17,8 +17,8 @@
 
     request.setCharacterEncoding("UTF-8");
     boolean isHasImage = false;
-    int status = Const.STATUS_OK;
-    String msg = Const.STATUS_OK_MSG, iconUrl = "";
+    int status = Constants.STATUS_OK;
+    String msg = Constants.STATUS_OK_MSG, iconUrl = "";
 
     try {
         String imageSaveRooot = "topicImage";
@@ -78,7 +78,7 @@
             }
         }
 
-        if (status == Const.STATUS_OK) {
+        if (status == Constants.STATUS_OK) {
             if (Tools.isNull(latitude)) {
                 latitude = "0.000000";
             }
@@ -103,18 +103,18 @@
             dbet = System.currentTimeMillis();
         }
     } catch (Exception e) {
-        status = Const.STATUS_NO_FILE;
-        msg = Const.STATUS_NO_FILE_MSG;
+        status = Constants.STATUS_NO_FILE;
+        msg = Constants.STATUS_NO_FILE_MSG;
     } finally {
         if (!isHasImage) {
-            status = Const.STATUS_NO_FILE;
-            msg = Const.STATUS_NO_FILE_MSG;
+            status = Constants.STATUS_NO_FILE;
+            msg = Constants.STATUS_NO_FILE_MSG;
         }
         StringBuffer buffer = new StringBuffer();
         buffer.append("{");
         buffer.append("\"status\":\"" + status + "\",");
         buffer.append("\"msg\":\"" + msg + "\",");
-        if (status == Const.STATUS_OK) {
+        if (status == Constants.STATUS_OK) {
             buffer.append("\"imageUrl\":\" " + iconUrl + "\"");
         }
         buffer.append("}");

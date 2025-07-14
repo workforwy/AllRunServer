@@ -6,11 +6,11 @@
 <%@page import="   dao.SportDAO" %>
 <%@page import="   dao.UserDAO" %>
 <%@page import="   entity.UserEntity" %>
-<%@page import="   util.Const" %>
+<%@page import="   util.Constants" %>
 <%@ page import="util.Tools" %>
 <%
-    int status = Const.STATUS_OK;
-    String msg = Const.STATUS_OK_MSG;
+    int status = Constants.STATUS_OK;
+    String msg = Constants.STATUS_OK_MSG;
     UserEntity userEntity = null;
 
     try {
@@ -48,12 +48,12 @@
                 traceDAO.addTrace(traceEntity, sportId);
             }
         } else {
-            status = Const.STATUS_LOGIN_ERROR;
-            msg = Const.STATUS_LOGIN_ERROR_MSG;
+            status = Constants.STATUS_LOGIN_ERROR;
+            msg = Constants.STATUS_LOGIN_ERROR_MSG;
         }
     } catch (Exception e) {//myPic = null;
-        status = Const.STATUS_SERVER_ERROR;
-        msg = Const.STATUS_SERVER_ERROR_MSG;
+        status = Constants.STATUS_SERVER_ERROR;
+        msg = Constants.STATUS_SERVER_ERROR_MSG;
     } finally {
         //servlets/ApkUpdateServlet输出的中文也是乱码，android 上不乱码
         String buffer = "{" +

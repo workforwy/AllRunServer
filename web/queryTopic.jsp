@@ -2,14 +2,14 @@
 <%@page import="   entity.TopicEntity" %>
 <%@page import="   dao.UserDAO" %>
 <%@page import="   entity.UserEntity" %>
-<%@page import="   util.Const" %>
+<%@page import="   util.Constants" %>
 <%@page import="   util.Tools" %>
 
 <%@ page contentType="text/html; charset=UTF-8" %>
 <%@page import="java.util.*" %>
 <%
-    int status = Const.STATUS_OK;
-    String msg = Const.STATUS_OK_MSG;
+    int status = Constants.STATUS_OK;
+    String msg = Constants.STATUS_OK_MSG;
     TopicEntity[] topicEntitys = null;
     boolean userIsExist = false;
     try {
@@ -22,8 +22,8 @@
         UserDAO userDAO = new UserDAO();
         userIsExist = userDAO.checkUserIsExist(username, md5password);
         if (!userIsExist) {
-            status = Const.STATUS_LOGIN_ERROR;
-            msg = Const.STATUS_LOGIN_ERROR_MSG;
+            status = Constants.STATUS_LOGIN_ERROR;
+            msg = Constants.STATUS_LOGIN_ERROR_MSG;
         } else {
             TopicDAO topicDAO = new TopicDAO();
             topicEntitys = topicDAO.queryAll();
@@ -38,7 +38,7 @@
         buffer.append("{");
         buffer.append("\"status\":\"" + status + "\",");
         buffer.append("\"msg\":\"" + msg + "\",");
-        if (status == Const.STATUS_OK) {
+        if (status == Constants.STATUS_OK) {
             buffer.append("\"data\":[");
             for (int i = 0; i < topicEntitys.length; i++) {
                 TopicEntity topicEntity = topicEntitys[i];

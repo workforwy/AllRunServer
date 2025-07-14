@@ -200,7 +200,7 @@ public class UserDAO {
      * @return
      */
     public int register(final UserEntity userEntity) {
-        int statusCode = Const.STATUS_SERVER_ERROR;
+        int statusCode = Constants.STATUS_SERVER_ERROR;
         class SetUsername implements SetParameter {
             @Override
             public void set(PreparedStatement preparedStatement) throws Exception {
@@ -230,7 +230,7 @@ public class UserDAO {
             List list = select.selectRS(sql, new SetUsername());
 
             if (list.size() >= 1) {
-                statusCode = Const.STATUS_REGISTER_ERROR;
+                statusCode = Constants.STATUS_REGISTER_ERROR;
                 return statusCode;
             }
 
@@ -243,10 +243,10 @@ public class UserDAO {
             Modify modify = new Modify();
             int id = modify.exec(sql, new SetParam());
             if (id >= 1) {
-                statusCode = Const.STATUS_OK;
+                statusCode = Constants.STATUS_OK;
             }
         } catch (Exception e) {
-            statusCode = Const.STATUS_SERVER_ERROR;
+            statusCode = Constants.STATUS_SERVER_ERROR;
             e.printStackTrace();
             Tools.writeException(e);
         }

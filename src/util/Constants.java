@@ -1,6 +1,6 @@
 package util;
 
-public class Const {
+public class Constants {
 
     public static final int STATUS_OK = 0;
     public static final String STATUS_OK_MSG = "成功";

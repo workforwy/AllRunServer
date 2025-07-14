@@ -3,14 +3,14 @@
 <%@page import="entity.TopicEntity" %>
 <%@page import="dao.UserDAO" %>
 <%@page import="entity.UserEntity" %>
-<%@page import="util.Const" %>
+<%@page import="util.Constants" %>
 <%@page import="java.util.*" %>
 
 <%@page contentType="text/html; charset=UTF-8" %>
 
 <%
-    int status = Const.STATUS_OK;
-    String msg = Const.STATUS_OK_MSG;
+    int status = Constants.STATUS_OK;
+    String msg = Constants.STATUS_OK_MSG;
     TopicEntity[] topicEntitys = null;
     boolean userIsExist = false;
     try {
@@ -18,11 +18,11 @@
         username = Tools.FileToUtf8(username);
         //999999不允许用户升级
         if ("999999".equals(username)) {
-            status = Const.STATUS_WITHOUT_RELEASE;
-            msg = Const.STATUS_WITHOUT_RELEASE_MSG;
+            status = Constants.STATUS_WITHOUT_RELEASE;
+            msg = Constants.STATUS_WITHOUT_RELEASE_MSG;
         } else {
-            status = Const.STATUS_OK;
-            msg = Const.STATUS_OK_MSG;
+            status = Constants.STATUS_OK;
+            msg = Constants.STATUS_OK_MSG;
         }
     } catch (Exception e) {//myPic = null;
         e.printStackTrace();
@@ -33,7 +33,7 @@
         buffer.append("{");
         buffer.append("\"status\":\"").append(status).append("\",");
         buffer.append("\"msg\":\"").append(msg).append("\",");
-        if (status == Const.STATUS_OK) {
+        if (status == Constants.STATUS_OK) {
             String changeLog = "增加了二维码扫描功能\n修改了某些机型登录失败问题";
             buffer.append("\"version\":\"9.0\",");
             buffer.append("\"changeLog\":\"").append(changeLog).append("\",");

@@ -1,13 +1,13 @@
 <%@page import="   dao.UserDAO" %>
 <%@page import="   entity.UserEntity" %>
-<%@page import="   util.Const" %>
+<%@page import="   util.Constants" %>
 <%@page import="   util.Tools" %>
 
 <%@ page contentType="text/html; charset=UTF-8" %>
 <%@page import="java.util.*" %>
 <%
-    int status = Const.STATUS_OK;
-    String msg = Const.STATUS_OK_MSG;
+    int status = Constants.STATUS_OK;
+    String msg = Constants.STATUS_OK_MSG;
     UserEntity[] userEntitys = null;
     boolean userIsExist = false;
     try {
@@ -23,15 +23,15 @@
         UserDAO userDAO = new UserDAO();
         userIsExist = userDAO.checkUserIsExist(username, md5password);
         if (!userIsExist) {
-            status = Const.STATUS_LOGIN_ERROR;
-            msg = Const.STATUS_LOGIN_ERROR_MSG;
+            status = Constants.STATUS_LOGIN_ERROR;
+            msg = Constants.STATUS_LOGIN_ERROR_MSG;
 
         } else if (Tools.isNull(strPageIndex)
                 || !Tools.isNum(strPageIndex)) {
-            status = Const.STATUS_FAILURE;
+            status = Constants.STATUS_FAILURE;
             msg = "pageIndex参数为空或pageIndex不是数字";
         } else if (Tools.isNull(strRowNum) || !Tools.isNum(strRowNum)) {
-            status = Const.STATUS_FAILURE;
+            status = Constants.STATUS_FAILURE;
 
             msg = "rowNum为空或rowNum不是数字";
         } else {
@@ -49,7 +49,7 @@
         buffer.append("{");
         buffer.append("\"status\":\"" + status + "\",");
         buffer.append("\"msg\":\"" + msg + "\",");
-        if (status == Const.STATUS_OK) {
+        if (status == Constants.STATUS_OK) {
             buffer.append("\"data\":[");
             for (int i = 0; i < userEntitys.length; i++) {
                 UserEntity userEntity = userEntitys[i];

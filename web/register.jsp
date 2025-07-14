@@ -8,7 +8,7 @@
 <%@page import="   util.Tools" %>
 <%@page import="   dao.UserDAO" %>
 <%@page import="   entity.UserEntity" %>
-<%@page import="   util.Const" %>
+<%@page import="   util.Constants" %>
 <%@ page import="java.io.File" %>
 <%@ page import="java.util.List" %>
 
@@ -18,7 +18,7 @@
     request.setCharacterEncoding("UTF-8");
 
     int status ;
-    String msg = Const.STATUS_OK_MSG, iconUrl = "";
+    String msg = Constants.STATUS_OK_MSG, iconUrl = "";
     boolean isHasImage = false;
     try {
         String imageSaveRooot = "userIcon";
@@ -87,7 +87,7 @@
             }
         }
 
-        if (status == Const.STATUS_OK) {
+        if (status == Constants.STATUS_OK) {
 
             if (Tools.isNull(latitude)) {
                 latitude = "0.000000";
@@ -122,14 +122,14 @@
 
     } finally {
         if (!isHasImage) {
-            status = Const.STATUS_NO_FILE;
-            msg = Const.STATUS_NO_FILE_MSG;
+            status = Constants.STATUS_NO_FILE;
+            msg = Constants.STATUS_NO_FILE_MSG;
         }
         StringBuffer buffer = new StringBuffer();
         buffer.append("{");
         buffer.append("\"status\":\"" + status + "\",");
         buffer.append("\"msg\":\"" + msg + "\",");
-        if (status == Const.STATUS_OK) {
+        if (status == Constants.STATUS_OK) {
             buffer.append("\"iconUrl\":\" " + iconUrl + "\"");
         }
         buffer.append("}");
