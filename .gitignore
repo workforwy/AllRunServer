@@ -1,3 +1,7 @@
 .idea
 out
-web/WEB-INF/classes
+target
+uploads
+data
+*.iml
+src/db.properties

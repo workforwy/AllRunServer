@@ -1,0 +1,28 @@
+server:
+  port: 8080
+  servlet:
+    context-path: /allRunServer
+
+spring:
+  application:
+    name: allrun-server
+  datasource:
+    url: jdbc:mysql://localhost:3306/all_run?useUnicode=true&characterEncoding=utf8&serverTimezone=Asia/Shanghai
+    username: ${DB_USER:root}
+    password: ${DB_PASSWORD:}
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  flyway:
+    enabled: true
+    baseline-on-migrate: true
+  servlet:
+    multipart:
+      max-file-size: 10MB
+      max-request-size: 10MB
+
+app:
+  upload-dir: ${UPLOAD_DIR:./uploads}
+  public-base-url: ${PUBLIC_BASE_URL:http://localhost:8080/allRunServer}
+  apk:
+    version: "9.0"
+    change-log: "增加了二维码扫描功能\n修改了某些机型登录失败问题"
+    file: classpath:static/v10.apk
