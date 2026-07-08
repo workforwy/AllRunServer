@@ -6,7 +6,8 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 public class AppProperties {
 
     private String uploadDir = "./uploads";
-    private String publicBaseUrl = "http://localhost:8080/allRunServer";
+    private String publicBaseUrl = "http://localhost:8080";
+    private final Jwt jwt = new Jwt();
     private final Apk apk = new Apk();
 
     public String getUploadDir() {
@@ -25,8 +26,33 @@ public class AppProperties {
         this.publicBaseUrl = publicBaseUrl;
     }
 
+    public Jwt getJwt() {
+        return jwt;
+    }
+
     public Apk getApk() {
         return apk;
+    }
+
+    public static class Jwt {
+        private String secret;
+        private long expirationMs = 86400000;
+
+        public String getSecret() {
+            return secret;
+        }
+
+        public void setSecret(String secret) {
+            this.secret = secret;
+        }
+
+        public long getExpirationMs() {
+            return expirationMs;
+        }
+
+        public void setExpirationMs(long expirationMs) {
+            this.expirationMs = expirationMs;
+        }
     }
 
     public static class Apk {

@@ -2,6 +2,6 @@
 out
 target
 uploads
-data
+.data
 *.iml
 src/db.properties

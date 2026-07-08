@@ -15,14 +15,14 @@ public class UserRepository {
         User user = new User();
         user.setId(rs.getInt("id"));
         user.setUsername(rs.getString("username"));
-        user.setMd5password(rs.getString("md5password"));
+        user.setPasswordHash(rs.getString("password_hash"));
         user.setNickname(rs.getString("nickname"));
         user.setGender(rs.getString("gender"));
         user.setIconUrl(rs.getString("iconUrl"));
         user.setLatitude(rs.getDouble("latitude"));
         user.setLongitude(rs.getDouble("longitude"));
         user.setIntro(rs.getString("intro"));
-        user.setRegTime(rs.getDouble("regTime"));
+        user.setRegTime(rs.getLong("regTime"));
         return user;
     };
 
@@ -32,22 +32,11 @@ public class UserRepository {
         this.jdbcTemplate = jdbcTemplate;
     }
 
-    public boolean exists(String username, String md5password) {
-        Integer count = jdbcTemplate.queryForObject(
-                "SELECT COUNT(*) FROM `user` WHERE username = ? AND md5password = ?",
-                Integer.class,
-                username,
-                md5password
-        );
-        return count != null && count > 0;
-    }
-
-    public Optional<User> findByCredentials(String username, String md5password) {
+    public Optional<User> findByUsername(String username) {
         List<User> users = jdbcTemplate.query(
-                "SELECT * FROM `user` WHERE username = ? AND md5password = ?",
+                "SELECT * FROM `user` WHERE username = ?",
                 ROW_MAPPER,
-                username,
-                md5password
+                username
         );
         return users.stream().findFirst();
     }
@@ -63,10 +52,10 @@ public class UserRepository {
 
     public void save(User user) {
         jdbcTemplate.update(
-                "INSERT INTO `user` (username, md5password, nickname, gender, iconUrl, latitude, longitude, intro, regTime) "
+                "INSERT INTO `user` (username, password_hash, nickname, gender, iconUrl, latitude, longitude, intro, regTime) "
                         + "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)",
                 user.getUsername(),
-                user.getMd5password(),
+                user.getPasswordHash(),
                 user.getNickname(),
                 user.getGender(),
                 user.getIconUrl(),
@@ -77,13 +66,13 @@ public class UserRepository {
         );
     }
 
-    public List<User> findPage(int pageIndex, int rowNum) {
-        int offset = (pageIndex - 1) * rowNum;
+    public List<User> findPage(int page, int size) {
+        int offset = (page - 1) * size;
         return jdbcTemplate.query(
-                "SELECT id, username, md5password, nickname, gender, iconUrl, latitude, longitude, intro, regTime "
+                "SELECT id, username, password_hash, nickname, gender, iconUrl, latitude, longitude, intro, regTime "
                         + "FROM `user` ORDER BY id DESC LIMIT ? OFFSET ?",
                 ROW_MAPPER,
-                rowNum,
+                size,
                 offset
         );
     }

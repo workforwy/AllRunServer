@@ -4,14 +4,14 @@ public class User {
 
     private int id;
     private String username;
-    private String md5password;
+    private String passwordHash;
     private String nickname;
     private String gender;
     private String iconUrl;
     private String intro;
     private double latitude;
     private double longitude;
-    private double regTime;
+    private long regTime;
 
     public int getId() {
         return id;
@@ -29,12 +29,12 @@ public class User {
         this.username = username;
     }
 
-    public String getMd5password() {
-        return md5password;
+    public String getPasswordHash() {
+        return passwordHash;
     }
 
-    public void setMd5password(String md5password) {
-        this.md5password = md5password;
+    public void setPasswordHash(String passwordHash) {
+        this.passwordHash = passwordHash;
     }
 
     public String getNickname() {
@@ -85,11 +85,11 @@ public class User {
         this.longitude = longitude;
     }
 
-    public double getRegTime() {
+    public long getRegTime() {
         return regTime;
     }
 
-    public void setRegTime(double regTime) {
+    public void setRegTime(long regTime) {
         this.regTime = regTime;
     }
 }
